@@ -4,41 +4,56 @@
    lista correspondente. Mantenha vírgulas entre os objetos.
    ================================================================ */
 
-/* NOTÍCIAS LEGADAS: a fonte ativa passou a ser news/index.js.
-   Estes exemplos podem ser removidos após a migração completa. */
-const legacyNews = [
-  { id: 1, slug: 'indice-gestao-fiscal', title: 'NEFIP lança índice para leitura da gestão fiscal municipal', category: 'Pesquisa', date: '2026-07-22', summary: 'Nova ferramenta reúne indicadores em uma linguagem clara para gestores e cidadãos.', content: 'O Índice de Gestão Fiscal Municipal foi criado para apoiar a leitura de receitas, despesas e capacidade de investimento. A plataforma reúne dados abertos, metodologia documentada e comparações territoriais.', tags: ['dados abertos', 'municípios'], featured: true },
-  { id: 2, slug: 'seminario-evidencias', title: 'Seminário debate evidências para o ciclo orçamentário', category: 'Eventos', date: '2026-06-11', summary: 'Encontro reuniu pesquisadores e gestores para discutir avaliação de políticas.', content: 'Durante o seminário, participantes compartilharam experiências de uso de evidências no planejamento e na execução orçamentária.', tags: ['orçamento', 'eventos'] },
-  { id: 3, slug: 'parceria-observatorio', title: 'Parceria amplia observatório de transparência pública', category: 'Parcerias', date: '2026-05-03', summary: 'Acordo de cooperação vai qualificar ferramentas de monitoramento cidadão.', content: 'A iniciativa integra conhecimentos acadêmicos e demandas de organizações que atuam no controle social.', tags: ['transparência'] },
-  { id: 4, slug: 'nota-tecnica-transferencias', title: 'Nota técnica analisa transferências intergovernamentais', category: 'Publicações', date: '2026-03-18', summary: 'Estudo detalha efeitos distributivos de regras de repartição de recursos.', content: 'O material apresenta um recorte regional e recomendações para aprimorar a previsibilidade fiscal.', tags: ['federalismo'] }
-];
+/* NOTÍCIAS: a fonte ativa é news/content, gerenciada pelo Pages CMS. */
 
-/* PROJETOS: status e theme alimentam automaticamente os filtros. */
+/* PROJETOS: só inclua registros com fonte institucional ou validação do NEFIP. */
 const projects = [
-  { id: 1, title: 'Observatório das Finanças Municipais', period: '2025–2026', year: '2026', status: 'Em andamento', theme: 'Gestão fiscal', summary: 'Plataforma de dados e análises para apoiar decisões locais.', partners: 'Universidades e municípios parceiros', results: 'Painel público, base harmonizada e boletins trimestrais.', objectives: 'Ampliar a capacidade de leitura fiscal nos municípios.', methodology: 'Integração de dados abertos e validação com equipes técnicas.' },
-  { id: 2, title: 'Orçamento em Linguagem Cidadã', period: '2024–2025', year: '2025', status: 'Publicado', theme: 'Transparência', summary: 'Projeto de visualização para aproximar orçamento e sociedade.', partners: 'Organizações de controle social', results: 'Guia metodológico e protótipo de painel.', objectives: 'Traduzir informações orçamentárias complexas.', methodology: 'Design participativo e testes de usabilidade.' },
-  { id: 3, title: 'Avaliação de Capacidade de Investimento', period: '2023–2024', year: '2024', status: 'Concluído', theme: 'Desenvolvimento regional', summary: 'Estudo sobre espaço fiscal e investimentos públicos regionais.', partners: 'Consórcio intermunicipal', results: 'Relatório técnico e oficinas territoriais.', objectives: 'Mapear condições para investimento sustentável.', methodology: 'Análise de séries fiscais e entrevistas.' }
+  { id: 1, title: 'Painel PPA e Índice de Maturidade', period: '2025', year: '2025', status: 'Publicado', theme: 'Planejamento e orçamento', summary: 'Ferramenta pública para consulta de informações sobre a maturidade dos PPAs dos 399 municípios paranaenses.', partners: 'TCE-PR', results: 'Painel interativo disponível no Portal Informação para Todos.', objectives: 'Ampliar o acesso a informações sobre o planejamento municipal.', methodology: 'Organização e apresentação de dados dos Planos Plurianuais municipais.' },
+  { id: 2, title: 'Painel Evolução Orçamentária do Planejamento Municipal por ODS', period: '2026', year: '2026', status: 'Publicado', theme: 'Dados e desenvolvimento sustentável', summary: 'Ferramenta que permite consultar a alocação orçamentária dos municípios paranaenses nos 17 Objetivos de Desenvolvimento Sustentável.', partners: 'TCE-PR; SGDES/PR', results: 'Painel público com filtros territoriais e por ciclo do PPA.', objectives: 'Apoiar a leitura do financiamento municipal relacionado aos ODS.', methodology: 'Classificação automatizada de ações orçamentárias dos ciclos 2022–2025 e 2026–2029.' }
 ];
 
-/* PUBLICAÇÕES: substitua o link '#' em app.js pelo destino definitivo quando houver. */
+/* PUBLICAÇÕES E MATERIAIS TÉCNICOS: registros com referência pública. */
 const publications = [
-  { title: 'Panorama das Finanças Municipais Brasileiras', type: 'Relatório', year: '2026', theme: 'Gestão fiscal', authors: 'Carolina Mendes; Rafael Nunes; equipe NEFIP', summary: 'Diagnóstico de receitas, despesas e capacidade de investimento em municípios brasileiros.', keywords: 'finanças municipais, sustentabilidade fiscal, dados abertos' },
-  { title: 'Transparência orçamentária e participação social', type: 'Artigo', year: '2025', theme: 'Transparência', authors: 'Helena Duarte; Lucas Paiva', summary: 'Evidências sobre formatos de divulgação e apropriação cidadã de dados públicos.', keywords: 'orçamento, transparência, participação' },
-  { title: 'Guia de indicadores para avaliação de políticas', type: 'Nota técnica', year: '2025', theme: 'Avaliação', authors: 'Marina Lopes; NEFIP', summary: 'Referencial prático para construir e interpretar indicadores de resultados.', keywords: 'avaliação, indicadores, políticas públicas' },
-  { title: 'Painel de transferências intergovernamentais', type: 'Painel', year: '2024', theme: 'Federalismo', authors: 'Laboratório de Dados NEFIP', summary: 'Visualização interativa das transferências entre entes federativos.', keywords: 'federalismo, transferências, painel' }
+  { title: 'Public Sector Financing Needs and and the Multi-Year Plan Maturity Index in the Municipalities of Parana', collection: 'Working Papers', type: 'Congress Presentation', year: '2026', theme: 'Planning and budgeting', authors: 'Fernando Motta Correia, Robson Fernandes Soares & Denilson Aldino Beal', summary: 'A panel Probit analysis of fiscal adjustment and budget-planning institutions', keywords: 'PPA, municipal planning, monitoring, evaluation', link: 'assets/publicacoes/working-papers/International_Conference_on_Public_Economic_Theory_Presentation.pdf' },
+  { title: 'Public sector financing needs and the multi-year plan maturity index', collection: 'Working Papers', type: 'Paper', year: '2026', theme: 'Planning and Budgeting', authors: 'Fernando Motta Correia, Robson Fernandes Soares & Denilson Aldino Beal', summary: 'This article examines the relationship between public sector financing needs and municipal budgetary planning capacity in the State of Paraná, as measured by the Multi-Year Plan Maturity Index (MYP-MI).', keywords: 'PPA, municipal planning, monitoring, evaluation', link: 'assets/publicacoes/working-papers/Article_Probit_PSFN_MYPMI_FGVRio.pdf' },
+  { title: 'Nota Técnica nº 37/2025 – CGF/TCE-PR', collection: 'Published Papers', type: 'Nota Técnica', year: '2025', theme: 'Planejamento e orçamento', authors: 'Coordenadoria-Geral de Fiscalização do TCE-PR', summary: 'Orientações e modelos de documentos para elaboração, monitoramento, revisão e avaliação do PPA.', keywords: 'PPA, planejamento municipal, monitoramento, avaliação', link: 'https://www1.tce.pr.gov.br/conteudo/nota-tecnica-n-37-de-19-de-novembro-de-2025-cgf.htm' }
 ];
 
-/* PREMIAÇÕES: ordene do reconhecimento mais recente para o mais antigo. */
+/* PREMIAÇÕES: mantenha somente reconhecimentos comprovados. */
 const awards = [
-  { year: '2026', name: 'Prêmio Inovação em Gestão Pública', institution: 'Rede de Administração Pública', project: 'Observatório das Finanças Municipais', description: 'Reconhecimento pela inovação no uso de dados abertos para gestão local.' },
-  { year: '2025', name: 'Menção Honrosa em Dados Abertos', institution: 'Fórum Brasileiro de Transparência', project: 'Orçamento em Linguagem Cidadã', description: 'Destaque para a clareza e o potencial de controle social da plataforma.' },
-  { year: '2023', name: 'Prêmio Pesquisa Aplicada', institution: 'Associação de Estudos Regionais', project: 'Avaliação de Capacidade de Investimento', description: 'Premiação pela contribuição ao debate sobre desenvolvimento regional.' }
+  { year: '2025', name: 'Menção Honrosa — Infosfera 2025', institution: 'Infojus / Programa de Pós-Graduação em Gestão da Informação da UFPR', project: 'Painel PPA e Índice de Maturidade', description: 'Reconhecimento do painel como boa prática de gestão da informação na administração pública.', link: 'https://infosfera.inf.br/infosfera2025/praticas-premiadas/' }
 ];
+
+/* DADOS ABERTOS: links diretos extraídos dos painéis públicos do TCE-PR. */
+const openDataCatalog = {
+  ppa: {
+    baseUrl: 'https://pit.tce.pr.gov.br/arquivos/ie_exp/ppa',
+    periods: ['2014-2017', '2018-2021', '2022-2025', '2026-2029'],
+    fileStem: 'ppa',
+    formats: ['csv', 'json', 'xml']
+  },
+  fiscalMunicipal: {
+    baseUrl: 'https://pit.tce.pr.gov.br/arquivos/ie_exp/ppa',
+    years: ['all', '2018', '2019', '2020', '2021', '2022', '2023', '2024', '2025'],
+    resources: [
+      { label: 'Gestão Fiscal Municipal', fileStem: 'GestaoFiscalMunicipal' },
+      { label: 'Despesas de Capital', fileStem: 'DespCapital' }
+    ],
+    formats: ['csv', 'json', 'xml'],
+    complementary: [
+      { label: 'CAPAG (STN)', link: 'https://www.tesourotransparente.gov.br/ckan/dataset/capag-municipios' },
+      { label: 'IFGF (Firjan)', link: 'https://firjan.com.br/data/files/86/20/2F/AC/1345991031B91689D8284EA8/Evolucao_por_Indicador_2013_a_2024_IFGF_2025.xlsx' },
+      { label: 'ICF (Siconfi)', link: 'https://ranking-municipios.tesouro.gov.br/static/data/down_loads/municipios_bspn.zip' }
+    ]
+  }
+};
 
 /* EQUIPE: os dois primeiros caracteres de cada nome formam o avatar temporário. */
 const team = [
   { name: 'Robson Fernandes Soares', role: 'Auditor de Controle Externo', interest: 'Planejamento Municipal e Orçamento', bio: 'É auditor de controle externo no TCE-PR e exerce o cargo de Acessor Executivo de Conselheiro pela Coordenadoria Geral de Fiscalização (CGF).' },
   { name: 'Denilson Aldino Beal', role: 'Auditor de Controle Externo', interest: 'Padrões de Fiscalização', bio: 'É auditor de controle externo no TCE-PR e exerce o cargo de Gerente de Métodos e Padrões de Fiscalização na Coordenadoria Geral de Fiscalização (CGF).' },
   { name: 'Fabio Junior Damacena', role: 'Auditor de Controle Externo', interest: 'Análise de Dados e DataViz', bio: 'É auditor de controle externo no TCE-PR e exerce o cargo de Coordenador Executivo na Coordenadoria de Sistemas e Informações da Fiscalização (COSIF).' },
-  { name: 'Fernando Motta Correia', role: 'Professor e Pesquisador', interest: 'Economia do Setor Público e Macroeconomia.', bio: 'Atualmente é Professor Titular do Departamento de Economia da UFPR. Concentra suas pesquisas nas áreas de Macroeconomia e Economia do Setor Público.' }
+  { name: 'Fernando Motta Correia', role: 'Professor e Pesquisador', interest: 'Economia do Setor Público e Macroeconomia.', bio: 'Atualmente é Professor Titular do Departamento de Economia da UFPR. Concentra suas pesquisas nas áreas de Macroeconomia e Economia do Setor Público.' },
+  { name: 'Leandro Menezes Rodrigues', role: 'Auditor de Controle Externo', interest: 'Fiscalização e Orçamento Público', bio: 'É auditor de controle externo no TCE-PR e exerce o cargo de Gerente de Fiscalização na 4ª Inspetoria de Controle Externo (4ICE).' },
+  { name: 'Douglas Nascimento de Oliveira', role: 'Estagiário de Pós-graduação', interest: 'Análise de Dados e Desenvolvimento Web', bio: 'É estudante de pós-graduação em Ciência de Dados e atua como estagiário na Coordenadoria de Geral de Fiscalização (CGF).' }
 ];

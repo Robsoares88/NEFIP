@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Dados e materiais | NEFIP</title>
+    <title>Dados e Materiais | NEFIP</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&display=swap" rel="stylesheet">
@@ -18,28 +18,90 @@
 <main id="conteudo" class="page-main">
   <div class="wrap page-intro">
     <p class="eyebrow">ACERVO ABERTO</p>
-    <h1>Dados e materiais</h1>
+    <h1>Dados e Materiais</h1>
     <p>Recursos para pesquisa, gestão e controle social.</p>
   </div>
-  <section class="wrap resource-grid">
-    <article>
-      <span>BASE</span>
-      <h2>Finanças municipais</h2>
-      <p>Séries históricas harmonizadas de receita, despesa e indicadores fiscais.</p>
-      <a class="text-link" href="#">Acessar base →</a>
-    </article>
-    <article>
-      <span>PAINEL</span>
-      <h2>Observatório fiscal</h2>
-      <p>Visualize tendências e compare indicadores em diferentes territórios.</p>
-      <a class="text-link" href="#">Explorar painel →</a>
-    </article>
-    <article>
-      <span>GUIA</span>
-      <h2>Materiais técnicos</h2>
-      <p>Notas metodológicas e guias para uso responsável de dados públicos.</p>
-      <a class="text-link" href="#">Ver materiais →</a>
-    </article>
+  <!-- MATERIAIS: cada bloco <details> é um tipo de recurso expansível. -->
+  <section class="wrap materials-directory" aria-label="Lista de dados e materiais">
+    <!-- DADOS ABERTOS DO PPA -->
+    <details class="material-dropdown">
+      <summary>
+        <span class="material-type">DADOS ABERTOS</span>
+        <span class="material-title">Painel do Plano Plurianual</span>
+        <span class="material-toggle" aria-hidden="true"></span>
+      </summary>
+      <div class="material-content">
+        <div>
+          <p>Consulte informações de projeções, programas, ações e indicadores dos Planos Plurianuais dos municípios paranaenses.</p>
+          <p class="material-note">Os dados estão organizados por período e disponíveis nos formatos CSV, JSON e XML.</p>
+        </div>
+        <div class="material-meta" aria-label="Detalhes do conjunto de dados">
+          <p><b>Períodos:</b> 2014–2017, 2018–2021, 2022–2025 e 2026–2029.</p>
+          <p><b>Formatos:</b> CSV, JSON e XML.</p>
+          <a class="button primary" href="https://app.powerbi.com/view?r=eyJrIjoiNDNmNDRlNGYtNDY1My00OWMyLTk3NGYtMGE1MDk4YTVmYWQyIiwidCI6ImY3MGEwYWY2LWRhMGYtNDViZS1iN2VkLTlmOGMxYjI0YmZkZiIsImMiOjR9" target="_blank" rel="noopener noreferrer">Abrir painel do PPA <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+      <!-- DADOS POR PERÍODO: linhas preenchidas por assets/app.js. -->
+      <section class="period-downloads" aria-labelledby="ppa-period-title">
+        <h3 id="ppa-period-title">Dados por período</h3>
+        <div class="table-scroll">
+          <table class="download-table">
+            <thead>
+              <tr>
+                <th scope="col">Período</th>
+                <th scope="col">PPA (CSV)</th>
+                <th scope="col">PPA (JSON)</th>
+                <th scope="col">PPA (XML)</th>
+              </tr>
+            </thead>
+            <tbody id="ppa-period-downloads"></tbody>
+          </table>
+        </div>
+      </section>
+    </details>
+    <!-- DADOS ABERTOS DE GESTÃO FISCAL MUNICIPAL -->
+    <details class="material-dropdown">
+      <summary>
+        <span class="material-type">DADOS ABERTOS</span>
+        <span class="material-title">Painel de Gestão Fiscal Municipal</span>
+        <span class="material-toggle" aria-hidden="true"></span>
+      </summary>
+      <div class="material-content">
+        <div>
+          <p>Consulte indicadores e demonstrativos de gestão fiscal elaborados com dados enviados pelos municípios ao SIMAM.</p>
+          <p class="material-note">Os dados estão organizados por período e incluem informações de gestão fiscal municipal e despesas de capital.</p>
+        </div>
+        <div class="material-meta" aria-label="Detalhes do conjunto de dados">
+          <p><b>Períodos:</b> 2018 a 2025.</p>
+          <p><b>Formatos:</b> CSV, JSON e XML.</p>
+          <a class="button primary" href="https://app.powerbi.com/view?r=eyJrIjoiY2Y1NjYyZDYtNDBkZC00ZGRmLWJjYjEtZTk5Y2IwYWUzM2ZmIiwidCI6ImY3MGEwYWY2LWRhMGYtNDViZS1iN2VkLTlmOGMxYjI0YmZkZiIsImMiOjR9" target="_blank" rel="noopener noreferrer">Abrir painel fiscal <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+      <!-- DADOS POR PERÍODO: linhas preenchidas por assets/app.js. -->
+      <section class="period-downloads" aria-labelledby="fiscal-period-title">
+        <h3 id="fiscal-period-title">Dados por período</h3>
+        <div class="table-scroll">
+          <table class="download-table download-table-wide">
+            <thead>
+              <tr>
+                <th scope="col">Ano</th>
+                <th scope="col">Gestão Fiscal<br>Municipal (CSV)</th>
+                <th scope="col">Despesas de<br>Capital (CSV)</th>
+                <th scope="col">Gestão Fiscal<br>Municipal (JSON)</th>
+                <th scope="col">Despesas de<br>Capital (JSON)</th>
+                <th scope="col">Gestão Fiscal<br>Municipal (XML)</th>
+                <th scope="col">Despesas de<br>Capital (XML)</th>
+              </tr>
+            </thead>
+            <tbody id="fiscal-period-downloads"></tbody>
+          </table>
+        </div>
+      </section>
+      <!-- INDICADORES COMPLEMENTARES: preenchidos por assets/app.js. -->
+      <section class="complementary-downloads" aria-label="Downloads complementares">
+        <div id="fiscal-complementary-downloads"></div>
+      </section>
+    </details>
   </section>
 </main>
 <!-- RODAPÉ: MONTADO POR assets/app.js -->

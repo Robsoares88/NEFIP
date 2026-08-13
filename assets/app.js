@@ -14,7 +14,7 @@ const PAGES = {
 
 const MENU_ITEMS = [
   ['home', 'Início'], ['about', 'Sobre o NEFIP'], ['team', 'Equipe'],
-  ['research', 'Linhas de Pesquisa'], ['news', 'Notícias'], ['projects', 'Projetos'],
+  ['news', 'Notícias'], ['projects', 'Projetos'],
   ['publications', 'Publicações'], ['awards', 'Premiações'],
   ['data', 'Dados e Materiais'], ['contact', 'Contato']
 ];
@@ -47,7 +47,7 @@ function addFavicon() {
 
 function buildHeader() {
   const links = MENU_ITEMS.map(([id, label]) => {
-    const href = id === 'research' ? 'index.html#linhas-pesquisa' : PAGES[id];
+    const href = PAGES[id];
     const active = currentPage === id ? ' aria-current="page"' : '';
     return `<a href="${href}"${active}>${label}</a>`;
   }).join('');
@@ -59,7 +59,6 @@ function buildHeader() {
           <img src="assets/logo.png" alt="Logotipo do NEFIP">
           <span><strong>NEFIP</strong><small>Núcleo de Estudos em Finanças Públicas</small></span>
         </a>
-        <input class="search" type="search" placeholder="Buscar no site" aria-label="Buscar no site">
       </div>
       <div class="wrap nav-row">
         <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
@@ -74,7 +73,7 @@ function buildFooter() {
       <div class="wrap footer-grid">
         <div><a class="brand" href="index.html"><img src="assets/logo.png" alt=""><span><strong>NEFIP</strong><small>Núcleo de Estudos em Finanças Públicas</small></span></a><p>Pesquisa e inovação para finanças públicas mais transparentes, eficientes e orientadas por evidências.</p></div>
         <div><h3>Acesso rápido</h3><div class="footer-links"><a href="projetos.html">Projetos</a><a href="publicacoes.html">Publicações</a><a href="dados.html">Dados e materiais</a><a href="contato.html">Contato</a></div></div>
-        <div><h3>Contato</h3><p>Atendimento pelo formulário institucional.<br>Curitiba, Paraná — Brasil<br><br>LinkedIn · Instagram · GitHub</p></div>
+        <div><h3>Contato</h3><p>Atendimento pelo formulário institucional.<br>Curitiba, Paraná — Brasil</div>
       </div>
       <div class="wrap copyright">© ${new Date().getFullYear()} NEFIP | Todos os direitos reservados.</div>
     </footer>`;
@@ -256,17 +255,66 @@ function initPublications() {
   populateSelect('pub-year', publications.map(item => item.year));
   populateSelect('pub-theme', publications.map(item => item.theme));
   const list = byId('publications-list');
+  const tabs = [...document.querySelectorAll('.publication-tab')];
+  let activeCollection = '';
 
   function renderPublications() {
-    const filtered = publications.filter(item => ['type', 'year', 'theme'].every(field => !getSelectValue(`pub-${field}`) || item[field] === getSelectValue(`pub-${field}`)));
-    list.innerHTML = filtered.map(item => `<article class="publication"><div><span class="pub-type">${item.type}</span><p>${item.year}</p></div><div><h2>${item.title}</h2><p>${item.authors}</p><p>${item.summary}</p><p class="keywords"><b>Palavras-chave:</b> ${item.keywords}</p></div><a class="button primary" href="#">Acessar</a></article>`).join('');
+    const filtered = publications.filter(item =>
+      (!activeCollection || item.collection === activeCollection) &&
+      ['type', 'year', 'theme'].every(field => !getSelectValue(`pub-${field}`) || item[field] === getSelectValue(`pub-${field}`))
+    );
+    list.innerHTML = filtered.map(item => `<article class="publication"><div><span class="pub-type">${item.type}</span><p>${item.year}</p></div><div><h2>${item.title}</h2><p>${item.authors}</p><p>${item.summary}</p><p class="keywords"><b>Palavras-chave:</b> ${item.keywords}</p></div>${item.link ? `<a class="button primary" href="${item.link}" target="_blank" rel="noopener noreferrer">Acessar</a>` : ''}</article>`).join('') || '<p class="empty-state">Nenhuma publicação encontrada para este filtro.</p>';
   }
+
+  tabs.forEach(tab => tab.addEventListener('click', () => {
+    activeCollection = tab.dataset.publicationCollection;
+    tabs.forEach(item => {
+      const isActive = item === tab;
+      item.classList.toggle('is-active', isActive);
+      item.setAttribute('aria-pressed', String(isActive));
+    });
+    renderPublications();
+  }));
+
   ['pub-type', 'pub-year', 'pub-theme'].forEach(id => byId(id).addEventListener('change', renderPublications));
   renderPublications();
 }
 
 function initAwards() {
-  byId('awards-list').innerHTML = awards.map(item => `<article class="award"><span class="award-year">${item.year}</span><p class="eyebrow">${item.institution}</p><h2>${item.name}</h2><p><b>Projeto relacionado:</b> ${item.project}</p><p>${item.description}</p><a class="text-link" href="#">Conhecer o reconhecimento →</a></article>`).join('');
+  byId('awards-list').innerHTML = awards.map(item => `<article class="award"><span class="award-year">${item.year}</span><p class="eyebrow">${item.institution}</p><h2>${item.name}</h2><p><b>Projeto relacionado:</b> ${item.project}</p><p>${item.description}</p>${item.link ? `<a class="text-link" href="${item.link}" target="_blank" rel="noopener noreferrer">Conhecer o reconhecimento →</a>` : ''}</article>`).join('');
+}
+
+/* -------------------- DADOS E MATERIAIS -------------------- */
+function initData() {
+  const ppaCatalog = openDataCatalog.ppa;
+  const catalog = openDataCatalog.fiscalMunicipal;
+
+  /* Links do PPA por ciclo: o identificador do ciclo vira parte do nome do arquivo. */
+  byId('ppa-period-downloads').innerHTML = ppaCatalog.periods.map(period => {
+    const filePeriod = period.replace('-', '_');
+    const links = ppaCatalog.formats.map(format => {
+      const url = `${ppaCatalog.baseUrl}/${ppaCatalog.fileStem}_${filePeriod}_${format}.zip`;
+      return `<a class="download-icon" href="${url}" target="_blank" rel="noopener noreferrer" aria-label="Baixar PPA do período ${period}, formato ${format.toUpperCase()}">↓ <span class="sr-only">${format.toUpperCase()}</span></a>`;
+    });
+    return `<tr><th scope="row">${period}</th>${links.map(link => `<td>${link}</td>`).join('')}</tr>`;
+  }).join('');
+
+  /* Gestão fiscal por ano: combina os dois conjuntos de dados e três formatos. */
+  byId('fiscal-period-downloads').innerHTML = catalog.years.filter(year => year !== 'all').map(year => {
+    const cells = catalog.formats.flatMap(format => catalog.resources.map(resource => {
+      const url = `${catalog.baseUrl}/${resource.fileStem}_${year}_${format}.zip`;
+      return `<td><a class="download-icon" href="${url}" target="_blank" rel="noopener noreferrer" aria-label="Baixar ${resource.label}, ano ${year}, formato ${format.toUpperCase()}">↓ <span class="sr-only">${format.toUpperCase()}</span></a></td>`;
+    }));
+    return `<tr><th scope="row">${year}</th>${cells.join('')}</tr>`;
+  }).join('');
+
+  /* Indicadores complementares exibidos no painel fiscal. */
+  byId('fiscal-complementary-downloads').innerHTML = catalog.complementary.map(item => `
+    <a href="${item.link}" target="_blank" rel="noopener noreferrer">
+      <span>${item.label}</span><b aria-hidden="true">↓</b>
+      <span class="sr-only">Baixar ${item.label}</span>
+    </a>
+  `).join('');
 }
 
 function initTeam() {
@@ -280,5 +328,5 @@ buildFooter();
 setupGlobalInteractions();
 setupCarousels();
 
-const pageInitializers = { home: initHome, news: initNews, projects: initProjects, publications: initPublications, awards: initAwards, team: initTeam };
+const pageInitializers = { home: initHome, news: initNews, projects: initProjects, publications: initPublications, awards: initAwards, team: initTeam, data: initData };
 pageInitializers[currentPage]?.();

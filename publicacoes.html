@@ -22,6 +22,12 @@
     <p>Artigos, relatórios, notas técnicas e produtos abertos do NEFIP.</p>
   </div>
   <section class="wrap">
+    <!-- FILTRO PRINCIPAL: classifique cada publicação em assets/data.js. -->
+    <div class="publication-tabs" role="group" aria-label="Filtrar publicações por coleção">
+      <button class="publication-tab is-active" type="button" data-publication-collection="" aria-pressed="true">Todas</button>
+      <button class="publication-tab" type="button" data-publication-collection="Published Papers" aria-pressed="false">Published Papers</button>
+      <button class="publication-tab" type="button" data-publication-collection="Working Papers" aria-pressed="false">Working Papers</button>
+    </div>
     <div class="filters">
       <select id="pub-type" aria-label="Filtrar por tipo">
         <option value="">Todos os tipos</option>
