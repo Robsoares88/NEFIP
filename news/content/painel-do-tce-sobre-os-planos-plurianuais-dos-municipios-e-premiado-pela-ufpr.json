@@ -19,11 +19,26 @@
     }
   ],
   "content": [
-    "O Tribunal de Contas do Estado do Paraná (TCE-PR) foi uma das instituições premiadas na noite desta terça-feira (21 de outubro) durante o evento Infosfera 2025, cujo objetivo é identificar as melhores práticas de gestão da informação na esfera pública.",
-    "Promovida pelo Núcleo de Pesquisa em Informação, Direito e Sociedade (Infojus) do Programa de Pós-Graduação em Gestão da Informação (PPGGI) da Universidade Federal do Paraná (UFPR), a iniciativa premiou o painel interativo PPA e Índice de Maturidade desenvolvido pela Corte de Contas, sob a justificativa de ser uma importante contribuição para a eficiência das boas práticas e políticas públicas municipais.",
-    "O prêmio foi entregue pelo professor Rodrigo Luís Kanayama ao auditor de controle externo Robson Fernandes Soares, da Coordenadoria-Geral de Fiscalização (CGF) do TCE-PR, um dos idealizadores da ferramenta. Na ocasião, ele representou a equipe responsável pela iniciativa, que também é composta pelo titular da CGF, Rafael Ayres, e pelos servidores Douglas Oliveira, Fabio Damasceno e Vinicius Pimenta.",
-    "Ao falar na solenidade de encerramento do evento, o presidente do Tribunal de Contas, conselheiro Ivens Linhares, destacou que os objetivos do Infosfera coincidem com as prioridades de sua gestão à frente da Corte. Ele lembrou que a instituição atua hoje buscando a melhoria na fiscalização das políticas públicas; o incentivo e o aprimoramento das ferramentas de controle social; e o desenvolvimento de novas ferramentas tecnológicas para auxiliar o controle externo, especialmente aquelas relativas à inteligência artificial.",
-    "\"A conjugação destes três objetivos leva ao diálogo com as universidades e à realização de eventos presenciais, que já ultrapassaram o número de 50 somente neste ano, nos quais a tônica é trabalhar as informações, alimentando os gestores com dados corretos e incentivando as boas práticas\", ressaltou Linhares."
+    {
+      "type": "paragraph",
+      "text": "O Tribunal de Contas do Estado do Paraná (TCE-PR) foi uma das instituições premiadas na noite desta terça-feira (21 de outubro) durante o evento Infosfera 2025, cujo objetivo é identificar as melhores práticas de gestão da informação na esfera pública."
+    },
+    {
+      "type": "paragraph",
+      "text": "Promovida pelo Núcleo de Pesquisa em Informação, Direito e Sociedade (Infojus) do Programa de Pós-Graduação em Gestão da Informação (PPGGI) da Universidade Federal do Paraná (UFPR), a iniciativa premiou o painel interativo PPA e Índice de Maturidade desenvolvido pela Corte de Contas, sob a justificativa de ser uma importante contribuição para a eficiência das boas práticas e políticas públicas municipais."
+    },
+    {
+      "type": "paragraph",
+      "text": "O prêmio foi entregue pelo professor Rodrigo Luís Kanayama ao auditor de controle externo Robson Fernandes Soares, da Coordenadoria-Geral de Fiscalização (CGF) do TCE-PR, um dos idealizadores da ferramenta. Na ocasião, ele representou a equipe responsável pela iniciativa, que também é composta pelo titular da CGF, Rafael Ayres, e pelos servidores Douglas Oliveira, Fabio Damasceno e Vinicius Pimenta."
+    },
+    {
+      "type": "paragraph",
+      "text": "Ao falar na solenidade de encerramento do evento, o presidente do Tribunal de Contas, conselheiro Ivens Linhares, destacou que os objetivos do Infosfera coincidem com as prioridades de sua gestão à frente da Corte. Ele lembrou que a instituição atua hoje buscando a melhoria na fiscalização das políticas públicas; o incentivo e o aprimoramento das ferramentas de controle social; e o desenvolvimento de novas ferramentas tecnológicas para auxiliar o controle externo, especialmente aquelas relativas à inteligência artificial."
+    },
+    {
+      "type": "paragraph",
+      "text": "\"A conjugação destes três objetivos leva ao diálogo com as universidades e à realização de eventos presenciais, que já ultrapassaram o número de 50 somente neste ano, nos quais a tônica é trabalhar as informações, alimentando os gestores com dados corretos e incentivando as boas práticas\", ressaltou Linhares."
+    }
   ],
   "source": {
     "label": "Tribunal de Contas do Estado do Paraná",

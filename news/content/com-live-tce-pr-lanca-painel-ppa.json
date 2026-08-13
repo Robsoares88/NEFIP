@@ -11,8 +11,14 @@
     {"src":"news/media/ppa-live-02.webp","alt":"Participantes da live de lançamento do Painel PPA e Índice de Maturidade","caption":"Live de lançamento do painel interativo PPA e Índice de Maturidade. Crédito: Elizandro Natal Brollo."}
   ],
   "content": [
-    "O Tribunal de Contas do Estado lançou o painel interativo PPA e Índice de Maturidade. A ferramenta apresenta dados relativos à maturidade dos Planos Plurianuais dos 399 municípios paranaenses.",
-    "O lançamento foi promovido por meio de live transmitida pelo canal da Escola de Gestão Pública da Corte no YouTube."
+    {
+      "type": "paragraph",
+      "text": "O Tribunal de Contas do Estado lançou o painel interativo PPA e Índice de Maturidade. A ferramenta apresenta dados relativos à maturidade dos Planos Plurianuais dos 399 municípios paranaenses."
+    },
+    {
+      "type": "paragraph",
+      "text": "O lançamento foi promovido por meio de live transmitida pelo canal da Escola de Gestão Pública da Corte no YouTube."
+    }
   ],
   "source": {"label":"Tribunal de Contas do Estado do Paraná — notícia original","url":"https://www1.tce.pr.gov.br/noticias/com-live-tce-pr-lanca-painel-interativo-sobre-os-planos-plurianuais-dos-municipios/12529/N.htm"}
 }

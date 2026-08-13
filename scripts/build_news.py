@@ -69,9 +69,44 @@ def render_gallery(article: dict) -> str:
         </section>""" % "\n            ".join(slides)
 
 
+def render_content(article: dict) -> str:
+    """Renderiza blocos ordenáveis do CMS; mantém compatibilidade com notícias antigas."""
+    rendered = []
+    for block in article.get("content", []):
+        # Compatibilidade com registros criados antes dos blocos de conteúdo.
+        if isinstance(block, str):
+            rendered.append(f"<p>{html.escape(block)}</p>")
+            continue
+
+        if block.get("type") == "image" and block.get("image"):
+            src = external_or_local(block["image"], article["slug"])
+            rendered.append(
+                '<figure class="article-inline-image">'
+                f'<img src="{html.escape(src, quote=True)}" alt="{html.escape(block.get("alt", article["title"]), quote=True)}" loading="lazy" decoding="async">'
+                f'<figcaption>{html.escape(block.get("caption", ""))}</figcaption>'
+                '</figure>'
+            )
+            continue
+
+        text = block.get("text", "")
+        link_label = block.get("linkLabel", "")
+        link_url = block.get("linkUrl", "")
+        escaped_text = html.escape(text)
+        if link_label and link_url and link_label in text:
+            escaped_label = html.escape(link_label)
+            anchor = (
+                f'<a href="{html.escape(link_url, quote=True)}" target="_blank" rel="noopener noreferrer">'
+                f'{escaped_label}</a>'
+            )
+            escaped_text = escaped_text.replace(escaped_label, anchor, 1)
+        if escaped_text:
+            rendered.append(f"<p>{escaped_text}</p>")
+    return "\n        ".join(rendered)
+
+
 def render_article(article: dict) -> str:
     """Monta uma página completa usando o mesmo cabeçalho, rodapé e CSS do site."""
-    paragraphs = "\n        ".join(f"<p>{html.escape(paragraph)}</p>" for paragraph in article["content"])
+    paragraphs = render_content(article)
     # Fonte é opcional: notícias próprias do NEFIP não precisam exibir este bloco.
     source = article.get("source") or {}
     source_block = ""

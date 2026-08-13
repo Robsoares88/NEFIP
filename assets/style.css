@@ -1271,6 +1271,26 @@ h3{
   font-size:.72rem
 }
 
+/* IMAGENS INSERIDAS ENTRE PARÁGRAFOS PELO PAGES CMS */
+.article-inline-image{
+  margin:28px 0;
+  border:1px solid var(--line);
+  background:var(--paper)
+}
+
+.article-inline-image img{
+  display:block;
+  width:100%;
+  max-height:560px;
+  object-fit:contain
+}
+
+.article-inline-image figcaption{
+  padding:10px 14px;
+  color:var(--muted);
+  font-size:.72rem
+}
+
 .carousel-controls{
   display:flex;
   align-items:center;

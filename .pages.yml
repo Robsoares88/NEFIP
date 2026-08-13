@@ -87,7 +87,45 @@ content:
               rename: safe
           - { name: alt, label: Texto alternativo, type: string, required: true }
           - { name: caption, label: Legenda e crédito, type: text, required: true }
-      - { name: content, label: Parágrafos da notícia, type: text, list: true, required: true }
+      # CORPO: os blocos podem ser reordenados para inserir imagens entre parágrafos.
+      - name: content
+        label: Conteúdo da notícia
+        type: object
+        list: true
+        required: true
+        fields:
+          - name: type
+            label: Tipo de bloco
+            type: select
+            required: true
+            options:
+              values: [paragraph, image]
+          - name: text
+            label: Texto do parágrafo
+            type: text
+            description: "Use somente em blocos do tipo paragraph."
+          - name: linkLabel
+            label: Trecho que será o link (opcional)
+            type: string
+            description: "Digite uma expressão que já esteja no texto do parágrafo. A primeira ocorrência será transformada em link."
+          - name: linkUrl
+            label: URL do link (opcional)
+            type: string
+            description: "Preencha junto com o trecho do link."
+          - name: image
+            label: Imagem entre parágrafos
+            type: image
+            description: "Use somente em blocos do tipo image."
+            options:
+              media: news-images
+              extensions: [jpg, jpeg, png, webp]
+              rename: safe
+          - name: alt
+            label: Texto alternativo da imagem
+            type: string
+          - name: caption
+            label: Legenda e crédito da imagem
+            type: text
       - name: source
         label: Fonte original (opcional)
         type: object
