@@ -1,0 +1,44 @@
+{
+  "slug": "nota-tecnica-elaboracao-ppa",
+  "title": "Nota Técnica do Tribunal orienta os municípios do Paraná na gestão do Plano Plurianual",
+  "summary": "Nota Técnica nº 37/2025 da Coordenadoria-Geral de Fiscalização traz modelos dos documentos mínimos necessários no processo de gestão do PPA: Elaboração, Monitoramento, Revisão e Avaliação",
+  "category": "Comunicados",
+  "date": "2026-03-03",
+  "author": "Diretoria de Comunicação Social - TCE-PR",
+  "featured": false,
+  "images": [
+    {
+      "src": "/news/media/imgrobson-fernandes-soaresgd.webp",
+      "alt": "Na edição de Curitiba do TCE-PR Conecta, o servidor Robson Fernandes Soares apresenta o Índice de Maturidade do PPA",
+      "caption": "TCE-PR"
+    }
+  ],
+  "content": [
+    {
+      "type": "paragraph",
+      "text": "Com o objetivo de auxiliar cada um dos 399 municípios paranaenses na gestão do seu Plano Plurianual (PPA) do quadriênio 2026-2029, a Coordenadoria-Geral de Fiscalização do Tribunal de Contas do Estado elaborou a Nota Técnica nº 37/2025 - CGF/TCE-PR. O documento está disponível na aba Fiscalizado/Atos Normativos do portal do TCE-PR na internet.",
+      "linkLabel": "Nota Técnica nº 37/2025 - CGF/TCE-PR",
+      "linkUrl": "https://www1.tce.pr.gov.br/conteudo/nota-tecnica-n-37-de-19-de-novembro-de-2025-cgf.htm"
+    },
+    {
+      "type": "paragraph",
+      "text": "Previsto no parágrafo 1º do artigo 165 da Constituição Federal, o PPA é o principal instrumento de planejamento orçamentário de médio prazo da administração pública. O documento estabelece diretrizes, objetivos e metas de governo para um período de quatro anos, abrangendo tanto investimentos quanto programas de execução continuada."
+    },
+    {
+      "type": "paragraph",
+      "text": "A vigência do PPA vai do segundo ano de mandato de um gestor até o primeiro ano do mandato seguinte, servindo como base para a formulação anual da Lei de Diretrizes Orçamentárias (LDO) e da Lei Orçamentária Anual (LOA). A elaboração e a execução do PPA são fundamentais para garantir coerência, continuidade e efetividade às ações governamentais.\n\nO PPA é um dos temas tratados no ciclo de eventos TCE-PR Conecta - Dados e Soluções para a Gestão Pública, que a Escola de Gestão Pública do TCE-PR está realizando em oito cidades-polo do estado até meados de maio.",
+      "linkLabel": "TCE-PR Conecta - Dados e Soluções para a Gestão Pública",
+      "linkUrl": "https://egp.tce.pr.gov.br/Home/Cursos?idModalidade=1"
+    },
+    {
+      "type": "paragraph",
+      "text": "No evento, o auditor de controle externo Robson Fernandes Soares, servidor da CGF, apresenta o painel interativo Plano Plurianual, disponível no Portal Informação para Todos (PIT), e o Índice de Maturidade dos Municípios em relação ao PPA, ferramenta desenvolvida pelo Tribunal.",
+      "linkLabel": "painel interativo Plano Plurianual",
+      "linkUrl": "https://app.powerbi.com/view?r=eyJrIjoiNDNmNDRlNGYtNDY1My00OWMyLTk3NGYtMGE1MDk4YTVmYWQyIiwidCI6ImY3MGEwYWY2LWRhMGYtNDViZS1iN2VkLTlmOGMxYjI0YmZkZiIsImMiOjR9"
+    }
+  ],
+  "source": {
+    "label": "Tribunal de Contas do Estado do Paraná",
+    "url": "https://www1.tce.pr.gov.br/noticias/nota-tecnica-do-tribunal-orienta-os-municipios-do-parana-na-gestao-do-plano-plurianual.htm"
+  }
+}
