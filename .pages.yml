@@ -1,0 +1,97 @@
+# PAGES CMS — EDITE NOTÍCIAS EM app.pagescms.org SEM MANIPULAR CÓDIGO.
+media:
+  # Biblioteca exclusiva para imagens das notícias.
+  # O Pages CMS grava o arquivo no repositório e salva a URL pública no campo `src`.
+  - name: news-images
+    label: Imagens das notícias
+    input: news/media
+    output: /news/media
+    categories: [image]
+    extensions: [jpg, jpeg, png, webp]
+    rename: safe
+
+settings:
+  commit:
+    templates:
+      create: "news: publish {filename}"
+      update: "news: update {filename}"
+      delete: "news: remove {filename}"
+
+content:
+  - name: news
+    label: Notícias
+    type: collection
+    path: news/content
+    format: json
+    filename: "{slug}.json"
+    view:
+      primary: title
+      fields: [title, date, category, featured]
+      sort: [date, title]
+      search: [title, summary, category]
+      default:
+        sort: date
+        order: desc
+    fields:
+      - { name: slug, label: URL, type: string, required: true, pattern: "^[a-z0-9-]+$", description: "Use letras minúsculas, números e hífens." }
+      - { name: title, label: Manchete, type: string, required: true }
+      - { name: summary, label: Resumo, type: text, required: true }
+      # Lista institucional fixa para manter filtros e arquivos consistentes.
+      - name: category
+        label: Categoria
+        type: select
+        required: true
+        description: "Selecione a categoria que melhor representa a notícia."
+        options:
+          placeholder: Selecione uma categoria
+          values:
+            - Institucional
+            - Pesquisa e Estudos
+            - Projetos
+            - Publicações
+            - Dados Abertos
+            - Painéis e Ferramentas
+            - Relatórios e Notas Técnicas
+            - Inovação e Tecnologia
+            - Planejamento e Orçamento
+            - Gestão Fiscal
+            - Transparência e Controle Social
+            - Políticas Públicas
+            - Desenvolvimento Regional
+            - Parcerias e Cooperação
+            - Eventos e Agenda
+            - Cursos e Capacitações
+            - Editais e Oportunidades
+            - Premiações e Reconhecimentos
+            - Equipe e Trajetórias
+            - Na Mídia
+            - Comunicados
+            # Mantida para compatibilidade com as notícias já publicadas.
+            - Dados públicos
+      - { name: date, label: Data de publicação, type: date, required: true }
+      - { name: author, label: Autoria, type: string, required: true }
+      - { name: featured, label: Destacar na página inicial, type: boolean, default: false }
+      - name: images
+        label: Imagens e créditos
+        type: object
+        list: true
+        fields:
+          - name: src
+            label: Imagem
+            type: image
+            required: true
+            description: "Envie ou selecione uma imagem local. Links externos não são aceitos."
+            options:
+              media: news-images
+              extensions: [jpg, jpeg, png, webp]
+              rename: safe
+          - { name: alt, label: Texto alternativo, type: string, required: true }
+          - { name: caption, label: Legenda e crédito, type: text, required: true }
+      - { name: content, label: Parágrafos da notícia, type: text, list: true, required: true }
+      - name: source
+        label: Fonte original (opcional)
+        type: object
+        description: "Preencha somente quando a notícia reproduzir ou sintetizar conteúdo de outra fonte."
+        fields:
+          - { name: label, label: Nome da fonte, type: string }
+          - { name: url, label: Link da fonte, type: string }
