@@ -179,6 +179,8 @@ def build() -> None:
             "pageUrl": f"noticias/{article['slug']}/", "coverImage": cover,
             "coverAlt": images[0].get("alt", article["title"]) if images else article["title"],
             "featured": article.get("featured", False),
+            # Campos em inglês são opcionais e usados pelo site quando a URL tem ?lang=en.
+            "en": article.get("en", {}),
         })
     GENERATED_INDEX.parent.mkdir(parents=True, exist_ok=True)
     pages_dir = GENERATED_INDEX.parent / "pages"

@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <title>NEFIP — Escudo</title>
-  <!-- FUNDO TRANSPARENTE: APENAS O ESCUDO -->
-  <path d="M32 4 55 13v17c0 14.8-9.5 24.7-23 30C18.5 54.7 9 44.8 9 30V13z" fill="#082c62" stroke="#d3a343" stroke-width="3" stroke-linejoin="round"/>
-  <!-- BARRAS DE DADOS -->
-  <path d="M17 42V33h7v9m4 0V25h8v17m4 0V30h7v12" fill="none" stroke="#fff" stroke-width="2.15" stroke-linejoin="round"/>
-  <path d="M16 45h32" fill="none" stroke="#d3a343" stroke-width="1.25" stroke-linecap="round"/>
-</svg>

@@ -133,3 +133,36 @@ content:
         fields:
           - { name: label, label: Nome da fonte, type: string }
           - { name: url, label: Link da fonte, type: string }
+      # INGLÊS: opcional. Quando preenchido, aparece automaticamente com ?lang=en.
+      # A versão em português continua sendo a fonte principal de publicação.
+      - name: en
+        label: Versão em inglês (opcional)
+        type: object
+        description: "Preencha os campos disponíveis quando houver tradução revisada para o inglês."
+        fields:
+          - { name: title, label: Manchete em inglês, type: string }
+          - { name: summary, label: Resumo em inglês, type: text }
+          - { name: category, label: Categoria em inglês, type: string }
+          - { name: author, label: Autoria em inglês, type: string }
+          - name: content
+            label: Conteúdo em inglês
+            type: object
+            list: true
+            fields:
+              - name: type
+                label: Tipo de bloco
+                type: select
+                options:
+                  values: [paragraph, image]
+              - { name: text, label: Texto do parágrafo em inglês, type: text }
+              - { name: linkLabel, label: Trecho que será o link (opcional), type: string }
+              - { name: linkUrl, label: URL do link (opcional), type: string }
+              - name: image
+                label: Imagem entre parágrafos
+                type: image
+                options:
+                  media: news-images
+                  extensions: [jpg, jpeg, png, webp]
+                  rename: safe
+              - { name: alt, label: Texto alternativo da imagem em inglês, type: string }
+              - { name: caption, label: Legenda e crédito em inglês, type: text }

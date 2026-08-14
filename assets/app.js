@@ -9,11 +9,11 @@
 const PAGES = {
   home: 'index.html', news: 'noticias.html', projects: 'projetos.html',
   publications: 'publicacoes.html', awards: 'premiacoes.html',
-  about: 'sobre.html', team: 'equipe.html', data: 'dados.html', contact: 'contato.html'
+  about: 'sobre.html', data: 'dados.html', contact: 'contato.html'
 };
 
 const MENU_ITEMS = [
-  ['home', 'Início'], ['about', 'Sobre o NEFIP'], ['team', 'Equipe'],
+  ['home', 'Início'], ['about', 'Sobre o NEFIP'],
   ['news', 'Notícias'], ['projects', 'Projetos'],
   ['publications', 'Publicações'], ['awards', 'Premiações'],
   ['data', 'Dados e Materiais'], ['contact', 'Contato']
@@ -21,6 +21,118 @@ const MENU_ITEMS = [
 
 const currentPage = document.body.dataset.page;
 const byId = id => document.getElementById(id);
+/* -------------------- IDIOMA (PT / EN) --------------------
+   O site tem uma única estrutura. O idioma é definido por ?lang=en;
+   links internos preservam essa escolha e os textos são centralizados aqui.
+   Para novos conteúdos do CMS, inclua a tradução inglesa quando disponível. */
+const locale = new URLSearchParams(window.location.search).get('lang') === 'en' ? 'en' : 'pt';
+const EN = {
+  'Início':'Home', 'Sobre o NEFIP':'About NEFIP', 'Notícias':'News', 'Projetos':'Projects',
+  'Publicações':'Publications', 'Premiações':'Awards', 'Dados e Materiais':'Data & Materials', 'Contato':'Contact',
+  'Núcleo de Estudos em Finanças Públicas':'Center for Public Finance Studies',
+  'Pular para o conteúdo':'Skip to content', 'Abrir menu':'Open menu', 'Fechar menu':'Close menu',
+  'Voltar ao topo':'Back to top', 'Pesquisa e inovação para finanças públicas mais transparentes, eficientes e orientadas por evidências.':'Research and innovation for more transparent, efficient and evidence-informed public finances.',
+  'Acesso rápido':'Quick links', 'Dados e materiais':'Data & materials', 'Atendimento pelo formulário institucional.':'Contact us through the institutional form.', 'Curitiba, Paraná — Brasil':'Curitiba, Paraná — Brazil', 'Todos os direitos reservados.':'All rights reserved.',
+  'NÚCLEO DE ESTUDOS EM FINANÇAS PÚBLICAS':'CENTER FOR PUBLIC FINANCE STUDIES',
+  'Pesquisa, dados e inovação para as finanças públicas.':'Research, data and innovation for public finances.',
+  'Produzimos conhecimento aplicado para decisões públicas mais transparentes, eficientes e orientadas por evidências.':'We produce applied knowledge for more transparent, efficient and evidence-informed public decisions.',
+  'Conheça os projetos':'Explore projects', 'Ver publicações':'View publications', 'EM QUE ATUAMOS':'WHAT WE DO',
+  'Pesquisa acadêmica, projetos técnicos e difusão de conhecimento voltados ao setor público.':'Academic research, technical projects and knowledge dissemination for the public sector.',
+  'Pesquisa aplicada':'Applied research', 'Dados e ferramentas':'Data & tools', 'Formação e cooperação':'Training & collaboration',
+  'EM DESTAQUE':'HIGHLIGHTS', 'Conhecimento que alcança o território.':'Knowledge that reaches communities.', 'Todas as notícias':'All news',
+  'LINHAS DE PESQUISA':'RESEARCH AREAS', 'Temas que orientam nossa atuação.':'Themes that guide our work.',
+  'Planejamento e orçamento público':'Public planning and budgeting', 'Transparência e controle social':'Transparency and social oversight',
+  'Dados abertos e inteligência pública':'Open data and public intelligence', 'Gestão fiscal municipal':'Municipal fiscal management',
+  'Políticas baseadas em evidências':'Evidence-based policies', 'Desenvolvimento regional':'Regional development',
+  'Instrumentos para qualificar prioridades, alocação de recursos e monitoramento.':'Tools to strengthen priorities, resource allocation and monitoring.',
+  'Informação acessível para fortalecer a participação e a accountability.':'Accessible information to strengthen participation and accountability.',
+  'Dados transformados em diagnósticos, painéis e decisões mais ágeis.':'Data transformed into assessments, dashboards and more agile decisions.',
+  'Análises para sustentabilidade e capacidade estatal nos municípios.':'Analysis for sustainability and public capacity in municipalities.',
+  'Avaliação de resultados para ampliar o impacto das políticas públicas.':'Outcome evaluation to increase the impact of public policies.',
+  'Finanças públicas a serviço de territórios mais equilibrados e inclusivos.':'Public finances serving more balanced and inclusive territories.',
+  'ACERVO ABERTO':'OPEN COLLECTION', 'Dados e materiais para ampliar o debate público.':'Data and materials to broaden public debate.',
+  'Explore bases, painéis, relatórios e materiais técnicos produzidos ou curados pelo NEFIP.':'Explore datasets, dashboards, reports and technical materials produced or curated by NEFIP.',
+  'Acessar dados e materiais':'Access data & materials', 'Bases de dados':'Datasets', 'Painéis interativos':'Interactive dashboards', 'Relatórios técnicos':'Technical reports', 'Repositórios e códigos':'Repositories & code',
+  'ACOMPANHE O NEFIP':'FOLLOW NEFIP', 'Pesquisas, parcerias, eventos e resultados que aproximam conhecimento e gestão pública.':'Research, partnerships, events and results that connect knowledge and public management.',
+  'Buscar notícias':'Search news', 'Todas as categorias':'All categories', 'Todos os anos':'All years', 'Carregar mais':'Load more', 'NOTÍCIA EM DESTAQUE':'FEATURED NEWS', 'Ler notícia →':'Read article →', 'Nenhuma notícia encontrada.':'No news found.',
+  'PESQUISA APLICADA':'APPLIED RESEARCH', 'Iniciativas acadêmicas e institucionais que transformam dados em capacidade pública.':'Academic and institutional initiatives that turn data into public capacity.',
+  'Todos os temas':'All themes', 'Todos os status':'All statuses', 'Detalhes':'Details', 'Acessar painel':'Open dashboard', 'Painel interativo':'Interactive dashboard', 'Área':'Area', 'Instituição':'Institution', 'Formato':'Format', 'Acessar ferramenta':'Open tool', 'Objetivo':'Objective', 'Metodologia':'Methodology', 'Resultados e entregas':'Results & deliverables', 'Fechar':'Close',
+  'PRODUÇÃO TÉCNICO-CIENTÍFICA':'TECHNICAL AND SCIENTIFIC OUTPUT', 'Artigos, relatórios, notas técnicas e produtos abertos do NEFIP.':'Articles, reports, technical notes and open products from NEFIP.',
+  'Todas':'All', 'Todos os tipos':'All types', 'Palavras-chave:':'Keywords:', 'Acessar':'Access', 'Nenhuma publicação encontrada para este filtro.':'No publications found for this filter.',
+  'RECONHECIMENTOS':'RECOGNITION', 'Resultados que reconhecem a qualidade e a relevância pública do nosso trabalho.':'Results that acknowledge the quality and public relevance of our work.', 'Projeto relacionado:':'Related project:', 'Conhecer o reconhecimento →':'View recognition →',
+  'ACERVO ABERTO':'OPEN COLLECTION', 'Recursos para pesquisa, gestão e controle social.':'Resources for research, management and social oversight.', 'DADOS ABERTOS':'OPEN DATA', 'Painel do Plano Plurianual':'Multi-Year Plan Dashboard', 'Painel de Gestão Fiscal Municipal':'Municipal Fiscal Management Dashboard', 'Dados por período':'Data by period', 'Período':'Period', 'Ano':'Year', 'Abrir painel do PPA ↗':'Open MYP dashboard ↗', 'Abrir painel fiscal ↗':'Open fiscal dashboard ↗',
+  'FALE CONOSCO':'GET IN TOUCH', 'Tem uma ideia, proposta de parceria ou pergunta sobre nossos dados? Escreva para nós.':'Have an idea, partnership proposal or question about our data? Write to us.', 'Atendimento institucional':'Institutional contact', 'Envie sua mensagem pelo formulário ao lado. Nossa equipe retornará assim que possível.':'Send your message using the form. Our team will respond as soon as possible.', 'Nome':'Name', 'Assunto':'Subject', 'Mensagem':'Message', 'Enviar mensagem':'Send message', 'As informações serão encaminhadas ao atendimento institucional.':'Your information will be forwarded to the institutional contact team.',
+  'SOBRE O NEFIP':'ABOUT NEFIP', 'Conhecimento público, compromisso coletivo.':'Public knowledge, collective commitment.', 'Um núcleo acadêmico que combina pesquisa, extensão e cooperação institucional.':'An academic center combining research, outreach and institutional cooperation.', 'NOSSA MISSÃO':'OUR MISSION', 'Pesquisa aplicada para decisões públicas melhores.':'Applied research for better public decisions.', 'PRINCÍPIOS':'PRINCIPLES', 'Como trabalhamos':'How we work', 'Rigor técnico e independência':'Technical rigor and independence', 'Dados abertos e reprodutibilidade':'Open data and reproducibility', 'Diálogo com os territórios':'Dialogue with communities', 'Impacto público mensurável':'Measurable public impact', 'ATUAÇÃO RECENTE':'RECENT ACTIVITY', 'Trajetória':'Trajectory', 'Iniciativas e reconhecimentos relacionados às atividades do núcleo.':'Initiatives and recognitions related to the center’s activities.', 'PESSOAS':'PEOPLE', 'Equipe':'Team', 'Pesquisadores, estudantes e colaboradores dedicados a tornar as finanças públicas mais inteligíveis.':'Researchers, students and collaborators committed to making public finances more understandable.'
+};
+/* Conteúdos existentes: traduções de interface e dos registros já publicados.
+   Se um registro novo ainda não tiver entrada em EN, ele permanece no idioma original. */
+Object.assign(EN, {
+  'Publicado': 'Published', 'Planejamento e orçamento': 'Planning and budgeting',
+  'Dados e desenvolvimento sustentável': 'Data and sustainable development',
+  'Comunicados': 'Announcements', 'Dados públicos': 'Public data', 'Premiações e Reconhecimentos': 'Awards and recognition',
+  'Auditor de Controle Externo': 'External Control Auditor', 'Professor e Pesquisador': 'Professor and Researcher', 'Estagiário de Pós-graduação': 'Graduate Intern',
+  'Padrões de Fiscalização': 'Audit Standards', 'Análise de Dados e DataViz': 'Data Analysis and Data Visualization', 'Fiscalização e Orçamento Público': 'Auditing and Public Budgeting', 'Análise de Dados e Desenvolvimento Web': 'Data Analysis and Web Development',
+  'Menção Honrosa — Infosfera 2025': 'Honorable Mention — Infosfera 2025', 'Painel PPA e Índice de Maturidade': 'MYP Dashboard and Maturity Index',
+  'Reconhecimento do painel como boa prática de gestão da informação na administração pública.': 'Recognition of the dashboard as a good information-management practice in public administration.',
+  'Ferramenta pública para consulta de informações sobre a maturidade dos PPAs dos 399 municípios paranaenses.': 'A public tool for consulting information on the maturity of Multi-Year Plans in Paraná’s 399 municipalities.',
+  'Painel público com filtros territoriais e por ciclo do PPA.': 'Public dashboard with territorial and MYP-cycle filters.',
+  'Painel de Business Intelligence que integra informações da gestão fiscal das entidades municipais paranaenses informadas ao SIM-AM.': 'Business Intelligence dashboard integrating fiscal-management information reported by Paraná municipal entities to SIM-AM.'
+  , 'Produzir e difundir conhecimento qualificado sobre finanças públicas, contribuindo para instituições mais transparentes, sustentáveis e capazes de gerar bem-estar social.': 'To produce and disseminate qualified knowledge on public finances, contributing to more transparent, sustainable institutions capable of generating social well-being.'
+  , 'O NEFIP aproxima universidade, gestores, organizações da sociedade civil e comunidades de dados para responder aos desafios do presente.': 'NEFIP brings together universities, public managers, civil-society organizations and data communities to address present-day challenges.'
+  , 'Painel PPA e Índice de Maturidade disponibilizado para consulta sobre os 399 municípios paranaenses.': 'The MYP Dashboard and Maturity Index was made available for consultation on Paraná’s 399 municipalities.'
+  , 'Reconhecimento do painel no Infosfera 2025, promovido pela UFPR, como boa prática de gestão da informação pública.': 'The dashboard was recognized at Infosfera 2025, organized by UFPR, as a good public information-management practice.'
+  , 'Nota Técnica nº 37/2025 orienta a gestão dos PPAs 2026–2029 nos municípios paranaenses.': 'Technical Note No. 37/2025 provides guidance on the management of 2026–2029 Multi-Year Plans in Paraná municipalities.'
+  , 'Painel sobre a evolução orçamentária por ODS amplia a leitura do planejamento municipal.': 'The dashboard on budget allocation by SDG broadens the understanding of municipal planning.'
+});
+function t(value) { return locale === 'en' ? (EN[value] || value) : value; }
+/* Registros podem receber um objeto `en` com apenas os campos traduzidos.
+   Ex.: { title: '...', summary: '...', en: { title: '...', summary: '...' } } */
+function localizeRecord(item) {
+  return locale === 'en' && item?.en ? { ...item, ...item.en } : item;
+}
+function localizedUrl(url) {
+  if (locale !== 'en' || /^(https?:|mailto:|#)/.test(url)) return url;
+  const separator = url.includes('?') ? '&' : '?';
+  return `${url}${separator}lang=en`;
+}
+/* O seletor usa a URL completa para funcionar também ao abrir o HTML por file:///. */
+function languageToggleUrl() {
+  const url = new URL(window.location.href);
+  if (locale === 'en') url.searchParams.delete('lang');
+  else url.searchParams.set('lang', 'en');
+  return url.href;
+}
+function translateDocument(root = document) {
+  if (locale !== 'en') return;
+  document.documentElement.lang = 'en';
+  const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, { acceptNode(node) {
+    return node.parentElement && !['SCRIPT', 'STYLE'].includes(node.parentElement.tagName) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+  }});
+  const nodes = []; while (walker.nextNode()) nodes.push(walker.currentNode);
+  nodes.forEach(node => {
+    const original = node.nodeValue;
+    const trimmed = original.trim();
+    if (EN[trimmed]) node.nodeValue = original.replace(trimmed, EN[trimmed]);
+  });
+  root.querySelectorAll?.('[placeholder],[aria-label],[title]').forEach(element => {
+    ['placeholder', 'aria-label', 'title'].forEach(attribute => {
+      const value = element.getAttribute(attribute);
+      if (EN[value]) element.setAttribute(attribute, EN[value]);
+    });
+  });
+  root.querySelectorAll?.('a[href]').forEach(link => {
+    const href = link.getAttribute('href');
+    if (href && !/^(https?:|mailto:|#)/.test(href) && !href.includes('lang=')) link.setAttribute('href', localizedUrl(href));
+  });
+  const englishTitles = {
+    home: 'NEFIP — Center for Public Finance Studies', news: 'News | NEFIP',
+    projects: 'Projects | NEFIP', publications: 'Publications | NEFIP',
+    awards: 'Awards | NEFIP', data: 'Data & Materials | NEFIP',
+    contact: 'Contact | NEFIP', about: 'About NEFIP | NEFIP',
+    'news-article': `${document.querySelector('.news-article h1')?.textContent || 'News'} | NEFIP`
+  };
+  document.title = englishTitles[currentPage] || document.title;
+}
 /* Índice carregado apenas nas páginas inicial e de notícias. */
 const news = window.NEFIP_NEWS || [];
 const newsConfig = window.NEFIP_NEWS_CONFIG || { pages: [], categories: [], years: [] };
@@ -41,13 +153,13 @@ function loadNewsPage() {
 function addFavicon() {
   document.head.insertAdjacentHTML(
     'beforeend',
-    '<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">'
+    '<link rel="icon" href="assets/logo.png" type="image/png">'
   );
 }
 
 function buildHeader() {
   const links = MENU_ITEMS.map(([id, label]) => {
-    const href = PAGES[id];
+    const href = localizedUrl(PAGES[id]);
     const active = currentPage === id ? ' aria-current="page"' : '';
     return `<a href="${href}"${active}>${label}</a>`;
   }).join('');
@@ -55,7 +167,7 @@ function buildHeader() {
   byId('site-header').innerHTML = `
     <header class="site-header">
       <div class="wrap header-top">
-        <a class="brand" href="index.html" aria-label="NEFIP, página inicial">
+        <a class="brand" href="${localizedUrl('index.html')}" aria-label="NEFIP, página inicial">
           <img src="assets/logo.png" alt="Logotipo do NEFIP">
           <span><strong>NEFIP</strong><small>Núcleo de Estudos em Finanças Públicas</small></span>
         </a>
@@ -63,6 +175,7 @@ function buildHeader() {
       <div class="wrap nav-row">
         <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
         <nav class="nav-links" aria-label="Navegação principal">${links}</nav>
+        <a class="language-switch" href="${languageToggleUrl()}" lang="${locale === 'en' ? 'pt-BR' : 'en'}" aria-label="${locale === 'en' ? 'Mudar para português' : 'Switch to English'}">${locale === 'en' ? 'PT' : 'EN'}</a>
       </div>
     </header>`;
 }
@@ -71,8 +184,8 @@ function buildFooter() {
   byId('site-footer').innerHTML = `
     <footer class="site-footer">
       <div class="wrap footer-grid">
-        <div><a class="brand" href="index.html"><img src="assets/logo.png" alt=""><span><strong>NEFIP</strong><small>Núcleo de Estudos em Finanças Públicas</small></span></a><p>Pesquisa e inovação para finanças públicas mais transparentes, eficientes e orientadas por evidências.</p></div>
-        <div><h3>Acesso rápido</h3><div class="footer-links"><a href="projetos.html">Projetos</a><a href="publicacoes.html">Publicações</a><a href="dados.html">Dados e materiais</a><a href="contato.html">Contato</a></div></div>
+        <div><a class="brand" href="${localizedUrl('index.html')}"><img src="assets/logo.png" alt=""><span><strong>NEFIP</strong><small>Núcleo de Estudos em Finanças Públicas</small></span></a><p>Pesquisa e inovação para finanças públicas mais transparentes, eficientes e orientadas por evidências.</p></div>
+        <div><h3>Acesso rápido</h3><div class="footer-links"><a href="${localizedUrl('projetos.html')}">Projetos</a><a href="${localizedUrl('publicacoes.html')}">Publicações</a><a href="${localizedUrl('dados.html')}">Dados e materiais</a><a href="${localizedUrl('contato.html')}">Contato</a></div></div>
         <div><h3>Contato</h3><p>Atendimento pelo formulário institucional.<br>Curitiba, Paraná — Brasil</div>
       </div>
       <div class="wrap copyright">© ${new Date().getFullYear()} NEFIP | Todos os direitos reservados.</div>
@@ -87,6 +200,7 @@ function setupGlobalInteractions() {
     const isOpen = navigation.classList.toggle('open');
     menuButton.setAttribute('aria-expanded', String(isOpen));
     menuButton.textContent = isOpen ? '×' : '☰';
+    menuButton.setAttribute('aria-label', isOpen ? t('Fechar menu') : t('Abrir menu'));
   });
 
   const topButton = document.querySelector('.to-top');
@@ -157,7 +271,7 @@ function setupCarousels() {
 
 /* -------------------- FUNÇÕES AUXILIARES -------------------- */
 function formatDate(date) {
-  return new Intl.DateTimeFormat('pt-BR', { dateStyle: 'medium' })
+  return new Intl.DateTimeFormat(locale === 'en' ? 'en-US' : 'pt-BR', { dateStyle: 'medium' })
     .format(new Date(`${date}T12:00:00`));
 }
 
@@ -176,13 +290,22 @@ function openDetailsModal(item, type) {
   const root = byId('modal-root');
   if (!root) return;
 
+  item = localizeRecord(item);
   const isProject = type === 'project';
+  if (isProject) {
+    root.innerHTML = `<div class="modal project-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title"><article class="modal-dialog project-dialog"><button class="modal-close" aria-label="Fechar">×</button><header class="project-modal-header"><p class="project-modal-label">${item.status} · ${item.period}</p><h1 id="modal-title">${item.title}</h1><p class="project-modal-summary">${item.summary}</p><dl class="project-facts"><div><dt>Área</dt><dd>${item.theme}</dd></div><div><dt>Instituição</dt><dd>${item.partners}</dd></div><div><dt>Formato</dt><dd>Painel interativo</dd></div></dl>${item.link ? `<a class="button project-tool-link" href="${item.link}" target="_blank" rel="noreferrer"><iconify-icon icon="simple-icons:powerbi" aria-hidden="true"></iconify-icon>Acessar ferramenta <span aria-hidden="true">↗</span><span class="sr-only">Power BI, abre em nova aba</span></a>` : ''}</header><div class="project-modal-content"><section><h2>Objetivo</h2><p>${item.objectives}</p></section><section><h2>Metodologia</h2><p>${item.methodology}</p></section><section class="project-results"><h2>Resultados e entregas</h2><p>${item.results}</p></section></div></article></div>`;
+    translateDocument(root);
+    root.querySelector('.modal-close').focus();
+    root.querySelector('.modal-close').addEventListener('click', closeModal);
+    root.querySelector('.modal').addEventListener('click', event => { if (event.target === event.currentTarget) closeModal(); });
+    return;
+  }
+
   const metadata = isProject ? `${item.theme} · ${item.period}` : `${item.category} · ${formatDate(item.date)}`;
-  const body = isProject
-    ? `<p><b>Período:</b> ${item.period} · <b>Status:</b> ${item.status}</p><h3>Objetivos</h3><p>${item.objectives}</p><h3>Metodologia</h3><p>${item.methodology}</p><h3>Resultados e produtos</h3><p>${item.results}</p><h3>Parceiros</h3><p>${item.partners}</p>`
-    : `<p>${item.content}</p><p>Esta notícia integra o acervo institucional do NEFIP. Consulte os materiais relacionados e acompanhe as próximas atualizações.</p>`;
+  const body = `<p>${item.content}</p><p>Esta notícia integra o acervo institucional do NEFIP. Consulte os materiais relacionados e acompanhe as próximas atualizações.</p>`;
 
   root.innerHTML = `<div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title"><article class="modal-dialog"><button class="modal-close" aria-label="Fechar">×</button><p class="modal-meta">${metadata}</p><h1 id="modal-title">${item.title}</h1><p class="lead" style="color:#657287">${item.summary}</p><div class="modal-content">${body}</div></article></div>`;
+  translateDocument(root);
   root.querySelector('.modal-close').focus();
   root.querySelector('.modal-close').addEventListener('click', closeModal);
   root.querySelector('.modal').addEventListener('click', event => { if (event.target === event.currentTarget) closeModal(); });
@@ -196,6 +319,7 @@ document.addEventListener('click', event => {
 
 /* -------------------- CARDS E LISTAGENS -------------------- */
 function newsCover(item, className, eager = false) {
+  item = localizeRecord(item);
   const loading = eager ? 'eager' : 'lazy';
   const image = item.coverImage
     ? `<img src="${item.coverImage}" alt="${item.coverAlt || item.title}" loading="${loading}">`
@@ -204,7 +328,8 @@ function newsCover(item, className, eager = false) {
 }
 
 function newsCard(item) {
-  return `<article class="item-card news-card">${newsCover(item, 'card-cover')}<span class="meta">${item.category} · ${formatDate(item.date)}</span><h2>${item.title}</h2><p>${item.summary}</p><a class="text-link" href="${item.pageUrl}">Ler notícia →</a></article>`;
+  item = localizeRecord(item);
+  return `<article class="item-card news-card">${newsCover(item, 'card-cover')}<div class="meta"><span class="news-category">${item.category}</span><time datetime="${item.date}">${formatDate(item.date)}</time></div><h2>${item.title}</h2><p>${item.summary}</p><a class="text-link" href="${item.pageUrl}">Ler notícia →</a></article>`;
 }
 
 function initHome() {
@@ -219,16 +344,20 @@ function initNews() {
   const moreButton = byId('news-more');
   let visibleItems = 3;
 
-  const featured = news.find(item => item.featured);
+  const featured = localizeRecord(news.find(item => item.featured));
   byId('featured-news').innerHTML = `<article class="featured">${newsCover(featured, 'featured-visual', true)}<div class="featured-copy"><p class="eyebrow">NOTÍCIA EM DESTAQUE</p><p class="meta">${featured.category} · ${formatDate(featured.date)}</p><h2>${featured.title}</h2><p>${featured.summary}</p><a class="text-link" href="${featured.pageUrl}">Ler notícia →</a></div></article>`;
 
   function renderNews() {
     const search = getSelectValue('news-search').toLowerCase();
     const category = getSelectValue('news-category');
     const year = getSelectValue('news-year');
-    const filtered = news.filter(item => (!search || `${item.title} ${item.summary}`.toLowerCase().includes(search)) && (!category || item.category === category) && (!year || item.date.startsWith(year)));
+    const filtered = news.filter(item => {
+      const localized = localizeRecord(item);
+      return (!search || `${localized.title} ${localized.summary}`.toLowerCase().includes(search)) && (!category || localized.category === category) && (!year || localized.date.startsWith(year));
+    });
     list.innerHTML = filtered.slice(0, visibleItems).map(newsCard).join('') || '<p>Nenhuma notícia encontrada.</p>';
     moreButton.style.display = (filtered.length > visibleItems || newsConfig.pages.length) ? 'block' : 'none';
+    translateDocument(list);
   }
 
   ['news-search', 'news-category', 'news-year'].forEach(id => byId(id).addEventListener('input', async () => { while (newsConfig.pages.length) await loadNewsPage(); visibleItems = 3; renderNews(); }));
@@ -237,33 +366,35 @@ function initNews() {
 }
 
 function initProjects() {
-  populateSelect('project-theme', projects.map(item => item.theme));
-  populateSelect('project-year', projects.map(item => item.year));
-  populateSelect('project-status', projects.map(item => item.status));
+  populateSelect('project-theme', projects.map(item => localizeRecord(item).theme));
+  populateSelect('project-year', projects.map(item => item.year).filter(Boolean));
+  populateSelect('project-status', projects.map(item => localizeRecord(item).status));
   const list = byId('projects-list');
 
   function renderProjects() {
-    const filtered = projects.filter(item => ['theme', 'year', 'status'].every(field => !getSelectValue(`project-${field}`) || item[field] === getSelectValue(`project-${field}`)));
-    list.innerHTML = filtered.map(item => `<article class="item-card"><span class="meta">${item.status} · ${item.period}</span><h2>${item.title}</h2><p>${item.summary}</p><p><b>${item.theme}</b></p><button class="text-link open-project" data-id="${item.id}">Ver projeto →</button></article>`).join('') || '<p>Nenhum projeto encontrado.</p>';
+    const filtered = projects.map(localizeRecord).filter(item => ['theme', 'year', 'status'].every(field => !getSelectValue(`project-${field}`) || item[field] === getSelectValue(`project-${field}`)));
+    list.innerHTML = filtered.map(item => `<article class="item-card"><span class="meta">${item.status} · ${item.period}</span><h2>${item.title}</h2><p>${item.summary}</p><p><b>${item.theme}</b></p><div class="project-actions"><button class="text-link open-project" data-id="${item.id}">Detalhes</button>${item.link ? `<a class="text-link powerbi-link" href="${item.link}" target="_blank" rel="noreferrer"><iconify-icon icon="simple-icons:powerbi" aria-hidden="true"></iconify-icon>Acessar painel <span aria-hidden="true">↗</span><span class="sr-only">Power BI, abre em nova aba</span></a>` : ''}</div></article>`).join('') || '<p>Nenhum projeto encontrado.</p>';
+    translateDocument(list);
   }
   ['project-theme', 'project-year', 'project-status'].forEach(id => byId(id).addEventListener('change', renderProjects));
   renderProjects();
 }
 
 function initPublications() {
-  populateSelect('pub-type', publications.map(item => item.type));
+  populateSelect('pub-type', publications.map(item => localizeRecord(item).type));
   populateSelect('pub-year', publications.map(item => item.year));
-  populateSelect('pub-theme', publications.map(item => item.theme));
+  populateSelect('pub-theme', publications.map(item => localizeRecord(item).theme));
   const list = byId('publications-list');
   const tabs = [...document.querySelectorAll('.publication-tab')];
   let activeCollection = '';
 
   function renderPublications() {
-    const filtered = publications.filter(item =>
+    const filtered = publications.map(localizeRecord).filter(item =>
       (!activeCollection || item.collection === activeCollection) &&
       ['type', 'year', 'theme'].every(field => !getSelectValue(`pub-${field}`) || item[field] === getSelectValue(`pub-${field}`))
     );
     list.innerHTML = filtered.map(item => `<article class="publication"><div><span class="pub-type">${item.type}</span><p>${item.year}</p></div><div><h2>${item.title}</h2><p>${item.authors}</p><p>${item.summary}</p><p class="keywords"><b>Palavras-chave:</b> ${item.keywords}</p></div>${item.link ? `<a class="button primary" href="${item.link}" target="_blank" rel="noopener noreferrer">Acessar</a>` : ''}</article>`).join('') || '<p class="empty-state">Nenhuma publicação encontrada para este filtro.</p>';
+    translateDocument(list);
   }
 
   tabs.forEach(tab => tab.addEventListener('click', () => {
@@ -281,7 +412,8 @@ function initPublications() {
 }
 
 function initAwards() {
-  byId('awards-list').innerHTML = awards.map(item => `<article class="award"><span class="award-year">${item.year}</span><p class="eyebrow">${item.institution}</p><h2>${item.name}</h2><p><b>Projeto relacionado:</b> ${item.project}</p><p>${item.description}</p>${item.link ? `<a class="text-link" href="${item.link}" target="_blank" rel="noopener noreferrer">Conhecer o reconhecimento →</a>` : ''}</article>`).join('');
+  byId('awards-list').innerHTML = awards.map(localizeRecord).map(item => `<article class="award"><span class="award-year">${item.year}</span><p class="eyebrow">${item.institution}</p><h2>${item.name}</h2><p><b>Projeto relacionado:</b> ${item.project}</p><p>${item.description}</p>${item.link ? `<a class="text-link" href="${item.link}" target="_blank" rel="noopener noreferrer">Conhecer o reconhecimento →</a>` : ''}</article>`).join('');
+  translateDocument(byId('awards-list'));
 }
 
 /* -------------------- DADOS E MATERIAIS -------------------- */
@@ -318,7 +450,8 @@ function initData() {
 }
 
 function initTeam() {
-  byId('team-list').innerHTML = team.map(item => `<article class="person"><div class="avatar" aria-hidden="true">${item.name.split(' ').map(word => word[0]).join('').slice(0, 2)}</div><h2>${item.name}</h2><p class="role">${item.role}</p><p><b>${item.interest}</b></p><p>${item.bio}</p></article>`).join('');
+  byId('team-list').innerHTML = team.map(localizeRecord).map(item => `<article class="person"><div class="avatar" aria-hidden="true">${item.name.split(' ').map(word => word[0]).join('').slice(0, 2)}</div><h2>${item.name}</h2><p class="role">${item.role}</p><p><b>${item.interest}</b></p><p>${item.bio}</p></article>`).join('');
+  translateDocument(byId('team-list'));
 }
 
 /* -------------------- INICIALIZAÇÃO DA PÁGINA ATUAL -------------------- */
@@ -328,5 +461,6 @@ buildFooter();
 setupGlobalInteractions();
 setupCarousels();
 
-const pageInitializers = { home: initHome, news: initNews, projects: initProjects, publications: initPublications, awards: initAwards, team: initTeam, data: initData };
+const pageInitializers = { home: initHome, news: initNews, projects: initProjects, publications: initPublications, awards: initAwards, about: initTeam, data: initData };
 pageInitializers[currentPage]?.();
+translateDocument();

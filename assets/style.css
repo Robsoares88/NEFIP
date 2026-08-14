@@ -277,6 +277,22 @@ h3{
   transform:scaleX(1)
 }
 
+/* SELETOR DE IDIOMA: a estrutura permanece única; apenas o conteúdo muda. */
+.language-switch{
+  flex:0 0 auto;
+  margin-left:22px;
+  padding:4px 0 4px 12px;
+  border-left:1px solid var(--line);
+  color:var(--blue);
+  font-size:.74rem;
+  font-weight:700;
+  letter-spacing:.08em
+}
+
+.language-switch:hover{
+  color:var(--navy)
+}
+
 /* Estado de rolagem: sombra e contraste aumentam progressivamente via JavaScript. */
 .site-header.is-condensed{
   background:rgba(255,255,255,.985);
@@ -320,6 +336,11 @@ h3{
     position:relative;
     justify-content:flex-end;
     min-height:34px
+  }
+
+  .language-switch{
+    margin-left:12px;
+    padding-left:12px
   }
 
   .nav-links{
@@ -744,6 +765,70 @@ h3{
   font-weight:700
 }
 
+.project-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:auto
+}
+
+.project-actions .text-link{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:36px;
+  margin-top:0;
+  padding:7px 12px;
+  border:1px solid var(--line);
+  background:#fff;
+  color:var(--blue);
+  font-size:.8rem;
+  line-height:1;
+  text-decoration:none;
+  transition:background .18s ease,border-color .18s ease,color .18s ease
+}
+
+.project-actions .open-project{
+  border-color:var(--navy);
+  background:var(--navy);
+  color:#fff;
+  cursor:pointer
+}
+
+.project-actions .open-project:hover{
+  background:var(--blue);
+  border-color:var(--blue)
+}
+
+.project-actions .powerbi-link:hover{
+  border-color:var(--blue);
+  background:#f3f9fb
+}
+
+.powerbi-link{
+  display:inline-flex;
+  align-items:center;
+  gap:6px
+}
+
+.powerbi-link iconify-icon{
+  width:16px;
+  height:16px;
+  color:#f2c811
+}
+
+.news-card .meta{
+  display:grid;
+  gap:4px;
+  margin-top:2px
+}
+
+.news-card .meta time{
+  color:var(--muted);
+  font-size:.66rem;
+  letter-spacing:.08em
+}
+
 .item-card h2{
   font-size:1.55rem;
   margin:14px 0
@@ -860,6 +945,87 @@ h3{
 
 
 /* SOBRE, EQUIPE E CONTATO */
+.about-page .page-intro{
+  padding:38px 0 28px
+}
+
+.about-overview{
+  display:grid;
+  grid-template-columns:minmax(0,1.3fr) minmax(280px,.7fr);
+  gap:72px;
+  padding:52px 0 58px
+}
+
+.about-mission h2{
+  max-width:650px;
+  margin-bottom:16px
+}
+
+.about-mission p{
+  max-width:690px
+}
+
+.about-principles{
+  align-self:start;
+  padding:22px 0 4px 25px;
+  border-left:2px solid var(--gold)
+}
+
+.about-principles h3{
+  margin:5px 0 15px;
+  font-size:1.45rem
+}
+
+.about-principles ul{
+  display:grid;
+  gap:9px;
+  margin:0;
+  padding:0;
+  list-style:none;
+  color:var(--muted)
+}
+
+.about-principles li{
+  position:relative;
+  padding-left:15px
+}
+
+.about-principles li::before{
+  position:absolute;
+  left:0;
+  top:.58em;
+  width:5px;
+  height:5px;
+  border-radius:50%;
+  background:var(--blue);
+  content:""
+}
+
+.about-trajectory{
+  padding:48px 0 52px;
+  background:var(--paper);
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line)
+}
+
+.about-section-title{
+  display:flex;
+  align-items:end;
+  justify-content:space-between;
+  gap:35px;
+  margin-bottom:28px
+}
+
+.about-section-title h2{
+  margin:3px 0 0
+}
+
+.about-section-title > p{
+  max-width:390px;
+  margin:0;
+  color:var(--muted)
+}
+
 .two-col{
   display:grid;
   grid-template-columns:1.2fr .7fr;
@@ -889,12 +1055,33 @@ h3{
 .milestones{
   display:grid;
   grid-template-columns:repeat(4,1fr);
-  gap:20px
+  gap:0;
+  border-top:1px solid var(--line)
 }
 
 .milestones div{
-  border-top:3px solid var(--gold);
-  padding-top:17px
+  position:relative;
+  padding:19px 20px 0 0
+}
+
+.milestones div + div{
+  padding-left:20px;
+  border-left:1px solid var(--line)
+}
+
+.milestones div::before{
+  position:absolute;
+  top:-4px;
+  left:0;
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:var(--gold);
+  content:""
+}
+
+.milestones div + div::before{
+  left:-4px
 }
 
 .milestones b{
@@ -921,6 +1108,10 @@ h3{
   padding:26px 24px;
   background:linear-gradient(145deg,#fff 0%,var(--paper) 100%);
   transition:transform .2s ease,box-shadow .2s ease
+}
+
+.team-section{
+  padding:52px 0 70px
 }
 
 .person:hover{
@@ -1220,6 +1411,21 @@ h3{
   color:var(--muted)
 }
 
+/* LINKS EMBUTIDOS EM PARÁGRAFOS DO PAGES CMS */
+.news-article > p a{
+  color:var(--blue);
+  font-weight:600;
+  text-decoration-line:underline;
+  text-decoration-color:rgba(8,110,158,.4);
+  text-decoration-thickness:1px;
+  text-underline-offset:3px
+}
+
+.news-article > p a:hover{
+  color:var(--navy);
+  text-decoration-color:var(--navy)
+}
+
 .news-article-header{
   margin-bottom:8px
 }
@@ -1407,7 +1613,7 @@ h3{
 .modal{
   position:fixed;
   inset:0;
-  z-index:30;
+  z-index:80;
   background:rgba(7,20,40,.72);
   display:grid;
   place-items:center;
@@ -1445,6 +1651,151 @@ h3{
 
 .modal-content{
   color:#49566b
+}
+
+/* DETALHE DE PROJETOS */
+.project-dialog{
+  max-width:900px;
+  padding:0;
+  overflow:hidden
+}
+
+.project-modal-header{
+  position:relative;
+  padding:46px 50px 40px;
+  overflow:hidden;
+  background:var(--navy);
+  color:#fff
+}
+
+.project-dialog .modal-close{
+  z-index:2;
+  color:#fff
+}
+
+.project-modal-header::after{
+  position:absolute;
+  right:-58px;
+  bottom:-82px;
+  width:240px;
+  height:240px;
+  border:1px solid rgba(255,255,255,.2);
+  border-radius:50%;
+  box-shadow:0 0 0 30px rgba(212,166,69,.17), 0 0 0 60px rgba(255,255,255,.04);
+  content:""
+}
+
+.project-modal-label{
+  position:relative;
+  z-index:1;
+  margin:0 0 13px;
+  color:var(--gold);
+  font-size:.72rem;
+  font-weight:700;
+  letter-spacing:.12em;
+  text-transform:uppercase
+}
+
+.project-modal-header h1{
+  position:relative;
+  z-index:1;
+  max-width:710px;
+  margin:0;
+  color:#fff;
+  font-size:clamp(2rem,4vw,3.35rem)
+}
+
+.project-modal-summary{
+  position:relative;
+  z-index:1;
+  max-width:700px;
+  margin:18px 0 0;
+  color:#d7e4f0;
+  font-size:1rem;
+  line-height:1.6
+}
+
+.project-facts{
+  position:relative;
+  z-index:1;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+  max-width:700px;
+  margin:28px 0 25px
+}
+
+.project-facts div{
+  padding-left:13px;
+  border-left:2px solid var(--gold)
+}
+
+.project-facts dt{
+  margin-bottom:5px;
+  color:#a9c6d8;
+  font-size:.66rem;
+  font-weight:700;
+  letter-spacing:.09em;
+  text-transform:uppercase
+}
+
+.project-facts dd{
+  margin:0;
+  color:#fff;
+  font-size:.85rem;
+  line-height:1.35
+}
+
+.project-tool-link{
+  position:relative;
+  z-index:1;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  border:1px solid var(--gold);
+  background:var(--gold);
+  color:var(--navy)
+}
+
+.project-tool-link:hover{
+  background:#f0c565;
+  color:var(--navy)
+}
+
+.project-tool-link iconify-icon{
+  width:17px;
+  height:17px
+}
+
+.project-modal-content{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:0;
+  background:#fff
+}
+
+.project-modal-content section{
+  padding:30px 34px;
+  border-right:1px solid var(--line);
+  border-bottom:1px solid var(--line)
+}
+
+.project-modal-content .project-results{
+  grid-column:1 / -1;
+  border-right:0
+}
+
+.project-modal-content h2{
+  margin:0 0 10px;
+  color:var(--ink);
+  font:1.25rem var(--serif)
+}
+
+.project-modal-content p{
+  margin:0;
+  color:var(--muted);
+  font-size:.92rem;
+  line-height:1.65
 }
 
 .site-footer{
@@ -1536,8 +1887,18 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
     --header-space:104px
   }
 
-  .hero-layout,.data-layout,.contact-grid,.two-col,.scope-layout{
+.hero-layout,.data-layout,.contact-grid,.two-col,.scope-layout{
   grid-template-columns:1fr
+}
+
+.about-overview{
+  grid-template-columns:1fr;
+  gap:32px;
+  padding:42px 0 48px
+}
+
+.about-principles{
+  max-width:620px
 }
 
 .hero-layout{
@@ -1575,6 +1936,21 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 
 .milestones{
   grid-template-columns:repeat(2,1fr)
+}
+
+.milestones div:nth-child(3){
+  padding-left:0;
+  border-left:0;
+  padding-top:24px
+}
+
+.milestones div:nth-child(3)::before{
+  left:0;
+  top:1px
+}
+
+.milestones div:nth-child(4){
+  padding-top:24px
 }
 
 .footer-grid{
@@ -1646,6 +2022,41 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 
 .feature-grid,.card-grid,.team-grid,.research-list{
   grid-template-columns:1fr
+}
+
+.about-page .page-intro{
+  padding:32px 0 24px
+}
+
+.about-section-title{
+  display:block;
+  margin-bottom:24px
+}
+
+.about-section-title > p{
+  margin-top:10px
+}
+
+.about-trajectory,.team-section{
+  padding:38px 0
+}
+
+.milestones{
+  grid-template-columns:1fr
+}
+
+.milestones div,
+.milestones div + div,
+.milestones div:nth-child(3){
+  padding:17px 0 0 18px;
+  border-left:1px solid var(--line)
+}
+
+.milestones div::before,
+.milestones div + div::before,
+.milestones div:nth-child(3)::before{
+  top:16px;
+  left:-4px
 }
 
 .material-dropdown summary{
@@ -1755,6 +2166,28 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 
 .modal-dialog{
   padding:35px 22px
+}
+
+.project-dialog{
+  padding:0
+}
+
+.project-modal-header{
+  padding:38px 24px 32px
+}
+
+.project-facts,.project-modal-content{
+  grid-template-columns:1fr
+}
+
+.project-facts{
+  gap:14px
+}
+
+.project-modal-content section,.project-modal-content .project-results{
+  grid-column:1;
+  padding:25px 24px;
+  border-right:0
 }
 
 .contact-grid{
