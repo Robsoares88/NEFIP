@@ -70,7 +70,34 @@ content:
             - Comunicados
             # Mantida para compatibilidade com as notícias já publicadas.
             - Dados públicos
-      - { name: categoryEn, label: Categoria em inglês (opcional), type: string }
+      - name: categoryEn
+        label: Categoria em inglês (opcional)
+        type: select
+        description: "Use a tradução correspondente à categoria principal."
+        options:
+          values:
+            - Institutional
+            - Research and Studies
+            - Projects
+            - Publications
+            - Open Data
+            - Dashboards and Tools
+            - Reports and Technical Notes
+            - Innovation and Technology
+            - Planning and Budgeting
+            - Fiscal Management
+            - Transparency and Social Oversight
+            - Public Policies
+            - Regional Development
+            - Partnerships and Cooperation
+            - Events and Calendar
+            - Courses and Training
+            - Calls and Opportunities
+            - Awards and Recognition
+            - Team and Trajectories
+            - In the Media
+            - Announcements
+            - Public Data
       - { name: date, label: Data de publicação, type: date, required: true }
       - { name: author, label: Autoria, type: string, required: true }
       - { name: authorEn, label: Autoria em inglês (opcional), type: string }

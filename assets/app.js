@@ -70,6 +70,14 @@ Object.assign(EN, {
   'Publicado': 'Published', 'Planejamento e orçamento': 'Planning and budgeting',
   'Dados e desenvolvimento sustentável': 'Data and sustainable development',
   'Comunicados': 'Announcements', 'Dados públicos': 'Public data', 'Premiações e Reconhecimentos': 'Awards and recognition',
+  'Institucional': 'Institutional', 'Pesquisa e Estudos': 'Research and Studies', 'Projetos': 'Projects',
+  'Dados Abertos': 'Open Data', 'Painéis e Ferramentas': 'Dashboards and Tools',
+  'Relatórios e Notas Técnicas': 'Reports and Technical Notes', 'Inovação e Tecnologia': 'Innovation and Technology',
+  'Planejamento e Orçamento': 'Planning and Budgeting', 'Gestão Fiscal': 'Fiscal Management',
+  'Transparência e Controle Social': 'Transparency and Social Oversight', 'Políticas Públicas': 'Public Policies',
+  'Desenvolvimento Regional': 'Regional Development', 'Parcerias e Cooperação': 'Partnerships and Cooperation',
+  'Eventos e Agenda': 'Events and Calendar', 'Cursos e Capacitações': 'Courses and Training',
+  'Editais e Oportunidades': 'Calls and Opportunities', 'Equipe e Trajetórias': 'Team and Trajectories', 'Na Mídia': 'In the Media',
   'Auditor de Controle Externo': 'External Control Auditor', 'Professor e Pesquisador': 'Professor and Researcher', 'Estagiário de Pós-graduação': 'Graduate Intern',
   'Padrões de Fiscalização': 'Audit Standards', 'Análise de Dados e DataViz': 'Data Analysis and Data Visualization', 'Fiscalização e Orçamento Público': 'Auditing and Public Budgeting', 'Análise de Dados e Desenvolvimento Web': 'Data Analysis and Web Development',
   'Menção Honrosa — Infosfera 2025': 'Honorable Mention — Infosfera 2025', 'Painel PPA e Índice de Maturidade': 'MYP Dashboard and Maturity Index',
@@ -406,7 +414,9 @@ function initNews() {
     const year = getSelectValue('news-year');
     const filtered = news.filter(item => {
       const localized = localizeRecord(item);
-      return (!search || `${localized.title} ${localized.summary}`.toLowerCase().includes(search)) && (!category || localized.category === category) && (!year || localized.date.startsWith(year));
+      // O valor do select usa a categoria PT-BR como chave canônica; apenas o
+      // texto exibido é traduzido. Assim, o filtro funciona nos dois idiomas.
+      return (!search || `${localized.title} ${localized.summary}`.toLowerCase().includes(search)) && (!category || item.category === category) && (!year || localized.date.startsWith(year));
     });
     list.innerHTML = filtered.slice(0, visibleItems).map(newsCard).join('') || '<p>Nenhuma notícia encontrada.</p>';
     moreButton.style.display = (filtered.length > visibleItems || newsConfig.pages.length) ? 'block' : 'none';
