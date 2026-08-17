@@ -1,24 +1,82 @@
 {
   "slug": "com-live-tce-pr-lanca-painel-ppa",
   "title": "Com \"live\", TCE-PR lança painel interativo sobre os PPAs dos municípios",
-  "category": "Dados públicos",
+  "summary": "Ferramenta está acessível no Portal Informação para Todos, na capa do site do Tribunal. Presidente da Corte, conselheiro Ivens Linhares, abriu o evento, que teve a participação do secretário Ulisses Maia",
+  "category": "Painéis e Ferramentas",
   "date": "2025-10-10",
   "author": "Diretoria de Comunicação Social, TCE-PR",
-  "summary": "Ferramenta está acessível no Portal Informação para Todos, na capa do site do Tribunal.",
   "featured": false,
   "images": [
-    {"src":"news/media/ppa-live-01.webp","alt":"Live de lançamento do Painel PPA e Índice de Maturidade","caption":"Live de lançamento do painel interativo PPA e Índice de Maturidade. Crédito: Elizandro Natal Brollo."},
-    {"src":"news/media/ppa-live-02.webp","alt":"Participantes da live de lançamento do Painel PPA e Índice de Maturidade","caption":"Live de lançamento do painel interativo PPA e Índice de Maturidade. Crédito: Elizandro Natal Brollo."}
+    {
+      "src": "/news/media/ppa-live-01.webp",
+      "alt": "Live de lançamento do Painel PPA e Índice de Maturidade",
+      "caption": "Live de lançamento do painel interativo PPA e Índice de Maturidade. Crédito: Elizandro Natal Brollo."
+    },
+    {
+      "src": "/news/media/ppa-live-02.webp",
+      "alt": "Participantes da live de lançamento do Painel PPA e Índice de Maturidade",
+      "caption": "Live de lançamento do painel interativo PPA e Índice de Maturidade. Crédito: Elizandro Natal Brollo."
+    }
   ],
   "content": [
     {
       "type": "paragraph",
-      "text": "O Tribunal de Contas do Estado lançou o painel interativo PPA e Índice de Maturidade. A ferramenta apresenta dados relativos à maturidade dos Planos Plurianuais dos 399 municípios paranaenses."
+      "text": "O Tribunal de Contas do Estado lançou, na manhã desta sexta-feira (10 de outubro), o painel interativo PPA e Índice de Maturidade. A ferramenta, desenvolvida por meio da plataforma Microsoft Power BI, apresenta dados relativos à maturidade dos Planos Plurianuais dos 399 municípios paranaenses. Ela pode ser acessada na página inicial do site do TCE-PR, no Portal Informação para Todos (PIT).",
+      "linkLabel": "PPA e Índice de Maturidade",
+      "linkUrl": "https://app.powerbi.com/view?r=eyJrIjoiNDNmNDRlNGYtNDY1My00OWMyLTk3NGYtMGE1MDk4YTVmYWQyIiwidCI6ImY3MGEwYWY2LWRhMGYtNDViZS1iN2VkLTlmOGMxYjI0YmZkZiIsImMiOjR9"
     },
     {
       "type": "paragraph",
-      "text": "O lançamento foi promovido por meio de live transmitida pelo canal da Escola de Gestão Pública da Corte no YouTube."
+      "text": "O lançamento foi promovido por meio de live transmitida pelo canal da Escola de Gestão Pública (EGP) da Corte no YouTube, cuja gravação pode ser assistida na íntegra aqui. O evento chegou a ser acompanhado por 320 usuários simultâneos, em sua maioria servidores públicos municipais.",
+      "linkLabel": "assistida na íntegra aqui",
+      "linkUrl": "https://www.youtube.com/watch?v=fY_HO3JjqE0"
+    },
+    {
+      "type": "paragraph",
+      "text": "PPA\n\nO Plano Plurianual (PPA), previsto no artigo 165 da Constituição Federal, consiste em um documento de planejamento de gestão a ser elaborado pelos Poderes Executivos municipais, estaduais e Federal, contendo as diretrizes, objetivos, estratégias e metas da gestão para um período de quatro anos.\n\nApós sua elaboração, o PPA é encaminhado como projeto de lei para debate e aprovação dos respectivos Poderes Legislativos e transformado em lei, a qual irá fundamentar todos os projetos de leis orçamentárias anuais seguintes e direcionar de forma organizada e consistente as ações públicas.\n\nPor sua vez, o painel interativo sobre o tema lançado pelo TCE-PR nesta sexta-feira reúne dados de todos os municípios paranaenses numa única plataforma, reunidos e organizados de forma a servir como ferramenta de medição e acompanhamento do detalhamento da execução dos respectivos planos plurianuais, disponível para consulta do público em geral.\n\nUma das abas do painel trata do índice de maturidade de cada PPA municipal. Este é composto por sete indicadores, os quais tratam de diversos aspectos das informações constantes no planejamento. Além de apontar a conformidade e a coerência do PPA, esse índice permite tanto comparar um município com os demais quanto avaliar a evolução de cada localidade entre um ciclo de planejamento e outro."
+    },
+    {
+      "type": "paragraph",
+      "text": "Evento\n\nAo abrir a live, o presidente do TCE-PR, conselheiro Ivens Linhares, ressaltou a importância dos PPAs para os entes públicos e lembrou que uma das diretrizes de sua gestão à frente do Tribunal é a valorização do planejamento para uma administração eficaz.\n\nEle ressaltou ainda que a Casa, após levantamento realizado por seu corpo técnico, detectou algumas deficiências na elaboração dos planos plurianuais e propôs a execução de um programa de capacitação a respeito do tema.\n\n\"Agora, como fruto desse trabalho, temos a oportunidade de lançar este painel, um compilado dessas informações apresentada de forma amigável, mediante índices e com a possibilidade de o cidadão verificar efetivamente se aquelas informações inseridas no plano plurianual traduzem a necessidade e a realidade daquele município\", afirmou.\n\nLinhares também chamou a atenção para a possibilidade de realizar comparações entre cidades vizinhas ou municípios de portes semelhantes. \"É uma ferramenta que permite não apenas aos gestores o aprimoramento dos PPAs, mas também ao cidadão comum o exercício do controle. Para nós, é uma realização apresentarmos esta ferramenta e deixarmos este instrumento à disposição de todos\", disse, ao agradecer a cooperação do Instituto Paranaense de Desenvolvimento Econômico e Social (Ipardes) e da Secretaria de Estado do Planejamento (SEPL-PR), bem como de seu titular, Ulisses Maia.\n\nMaia participou do evento por vídeo, avaliando o lançamento do painel como um momento importante para o Estado. Para ele, a ferramenta tornará possível avaliar, com dados claros e confiáveis, o nível de qualidade dos PPAs, de forma que será possível corrigir rumos e ações.\n\n\"Isto se traduz em mais eficiência e transparência para a população\", declarou o secretário, ao enaltecer o interesse de servidores municipais e prefeitos, por meio de capacitações patrocinadas por sua pasta em parceria com o TCE-PR para profissionalizar o planejamento.\n\nSegundo o coordenador-geral de Fiscalização (CGF) do TCE-PR, Rafael Ayres, a iniciativa é a primeira entrega resultante de uma parceria firmada entre o Tribunal e a SEPL-PR cujo objetivo é o estímulo à cultura do planejamento entre os gestores públicos paranaenses.\n\n\"Este é o ponto de partida de um conjunto de ações que o Tribunal tem estimulado e vai continuar executando. Inclusive, já temos previsto o lançamento de um manual de elaboração e monitoramento desses planos plurianuais\", antecipou.\n\nPara Ayres, o momento atual, próximo ao final de 2025, representa uma \"janela de oportunidade\" para corrigir algumas rotas e fazer ajustes nos PPAs que vigerão pelos próximos 4 anos. A ideia, segundo ele, é que os municípios, a partir da utilização do painel, utilizem a ferramenta em benefício de toda a sociedade."
+    },
+    {
+      "type": "paragraph",
+      "text": "Painel\n\nA apresentação do Painel PPA e Índice de Maturidade foi conduzida pelo auditor de controle externo Robson Fernandes Soares, da Coordenadoria-Geral de Fiscalização (CGF) do TCE-PR, um dos idealizadores da ferramenta.\n\nDurante sua exposição, o servidor detalhou levantamentos realizados pela equipe da CGF ainda em 2022 junto a bancos de dados oficiais, a respeito da coerência das metas físicas alcançadas em relação aos planejamentos feitos pelos municípios.\n\nEle apontou que, entre os pontos a serem melhorados apontados pela avaliação preliminar, está a gestão dos próprios planos plurianuais, já que hoje a maior parte dos municípios não realiza o monitoramento do planejamento ou não elabora relatórios de monitoramento da execução dos PPAs. \"Este painel vai ajudar a gerir de forma mais efetiva este planejamento\", afirmou Soares."
     }
   ],
-  "source": {"label":"Tribunal de Contas do Estado do Paraná — notícia original","url":"https://www1.tce.pr.gov.br/noticias/com-live-tce-pr-lanca-painel-interativo-sobre-os-planos-plurianuais-dos-municipios/12529/N.htm"}
+  "contentEn": [
+    {
+      "type": "paragraph",
+      "text": "On Friday morning (October 10), the State Court of Auditors launched the \"PPA and Maturity Index\" interactive dashboard. Developed using the Microsoft Power BI platform, the tool presents data regarding the updating of Multi-Year Plans (PPAs) for the 399 municipalities in Paraná. It can be accessed via the TCE-PR website's homepage, within the \"Information for All\" Portal (PIT).",
+      "linkLabel": "PPA and Maturity Index",
+      "linkUrl": "https://app.powerbi.com/view?r=eyJrIjoiNDNmNDRlNGYtNDY1My00OWMyLTk3NGYtMGE1MDk4YTVmYWQyIiwidCI6ImY3MGEwYWY2LWRhMGYtNDViZS1iN2VkLTlmOGMxYjI0YmZkZiIsImMiOjR9"
+    },
+    {
+      "type": "paragraph",
+      "text": "The launch was promoted via a live stream on the Court's School of Public Management (EGP) YouTube channel; the full recording can be viewed here. At its peak, the event was watched by 320 concurrent users, the majority of whom were municipal public servants.",
+      "linkLabel": "viewed here",
+      "linkUrl": "https://www.youtube.com/watch?v=fY_HO3JjqE0"
+    },
+    {
+      "type": "paragraph",
+      "text": "PPA\n\nThe Multi-Year Plan (PPA), provided for in Article 165 of the Federal Constitution, is a management planning document prepared by the municipal, state, and federal executive branches. It outlines the management guidelines, objectives, strategies, and targets for a four-year period.\n\nOnce drafted, the PPA is submitted as a bill to the respective legislative bodies for debate and approval. Upon enactment into law, it serves as the foundation for all subsequent annual budget bills and guides public actions in an organized and consistent manner.\n\nMeanwhile, the interactive dashboard on this subject—launched this Friday by the TCE-PR (State Court of Auditors of Paraná)—consolidates data from all municipalities in Paraná onto a single platform. This data is organized to serve as a tool for measuring and monitoring the detailed execution of the respective multi-year plans, and it is available for public consultation.\n\nOne of the dashboard's tabs focuses on the maturity index of each municipal PPA. This index comprises seven indicators addressing various aspects of the information contained in the plan. In addition to indicating the PPA's compliance and coherence, the index allows for comparisons between municipalities and an assessment of each locality's progress from one planning cycle to the next."
+    },
+    {
+      "type": "paragraph",
+      "text": "Event\n\nOpening the live stream, the President of the TCE-PR (State Court of Auditors of Paraná), Councilor Ivens Linhares, highlighted the importance of Multi-Year Plans (PPAs) for public entities. He noted that a key guideline of his leadership at the Court is prioritizing planning to ensure effective administration.\n\nHe further pointed out that the Court—following an assessment by its technical staff—had identified deficiencies in the drafting of these multi-year plans and subsequently proposed a training program on the subject.\n\n\"Now, as a result of this work, we have the opportunity to launch this dashboard—a compilation of information presented in a user-friendly format using key indicators. It allows citizens to verify whether the data entered into the multi-year plan truly reflects the needs and realities of their municipality,\" he stated.\n\nLinhares also drew attention to the ability to compare neighboring cities or municipalities of similar size. \"This tool enables not only administrators to improve their PPAs but also ordinary citizens to exercise oversight. It is a significant achievement for us to present this tool and make it available to everyone,\" he said, acknowledging the cooperation of the Paraná Institute for Economic and Social Development (Ipardes) and the State Secretariat of Planning (SEPL-PR), as well as its head, Ulisses Maia.\n\nMaia participated in the event via video link, describing the dashboard's launch as a significant moment for the state. He noted that the tool would make it possible to assess the quality of PPAs using clear, reliable data, thereby allowing for course corrections and adjustments to actions.\n\n\"This translates into greater efficiency and transparency for the public,\" the secretary declared, praising the interest shown by municipal civil servants and mayors in training sessions—sponsored by his department in partnership with the TCE-PR—aimed at professionalizing the planning process. According to Rafael Ayres, the General Coordinator of Oversight (CGF) at the TCE-PR, this initiative is the first deliverable resulting from a partnership between the Tribunal and SEPL-PR aimed at fostering a culture of planning among public administrators in Paraná.\n\n\"This marks the starting point for a series of actions that the Tribunal has been encouraging and will continue to implement. In fact, we are already planning to launch a manual on the development and monitoring of these multi-year plans,\" he noted.\n\nFor Ayres, the current period—approaching the end of 2025—represents a \"window of opportunity\" to correct course and make adjustments to the Multi-Year Plans (PPAs) that will be in effect for the next four years. The goal, he explains, is for municipalities to use this dashboard as a tool that benefits society as a whole."
+    },
+    {
+      "type": "paragraph",
+      "text": "Dashboard\n\nThe presentation of the PPA Dashboard and Maturity Index was led by external control auditor Robson Fernandes Soares, from the General Oversight Coordination Office (CGF) of the TCE-PR—one of the tool's creators.\n\nDuring his presentation, the official detailed analyses conducted by the CGF team in 2022 using official databases, focusing on the alignment between physical targets achieved and the plans originally devised by the municipalities.\n\nHe noted that the preliminary assessment identified the management of the multi-year plans (PPAs) themselves as an area for improvement, given that most municipalities currently fail to monitor their planning or do not produce reports tracking PPA implementation. \"This dashboard will help manage this planning more effectively,\" Soares stated."
+    }
+  ],
+  "source": {
+    "label": "Tribunal de Contas do Estado do Paraná — notícia original",
+    "url": "https://www1.tce.pr.gov.br/noticias/com-live-tce-pr-lanca-painel-interativo-sobre-os-planos-plurianuais-dos-municipios/12529/N.htm"
+  },
+  "titleEn": "With a live stream, TCE-PR launches an interactive dashboard on municipal multi-year plans.",
+  "summaryEn": "The tool is accessible via the \"Information for All\" portal on the Court's homepage. The Court's President, Councilor Ivens Linhares, opened the event, which was attended by Secretary Ulisses Maia.",
+  "categoryEn": "Dashboards and Tools",
+  "authorEn": "Social Communication Directorate, TCE-PR",
+  "translationStatus": "Revisada"
 }
