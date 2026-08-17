@@ -6,6 +6,7 @@ from __future__ import annotations
 
 import html
 import json
+import re
 from datetime import datetime
 from pathlib import Path
 
@@ -107,6 +108,8 @@ def render_content(article: dict) -> str:
                 )
                 escaped_text = escaped_text.replace(escaped_label, anchor, 1)
                 link_applied = True
+            # Markdown mínimo no CMS: **trecho** vira <strong>trecho</strong>.
+            escaped_text = re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", escaped_text)
             rendered.append(f"<p>{escaped_text}</p>")
     return "\n        ".join(rendered)
 
