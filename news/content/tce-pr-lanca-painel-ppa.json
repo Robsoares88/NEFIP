@@ -1,21 +1,55 @@
 {
   "slug": "tce-pr-lanca-painel-ppa",
   "title": "TCE-PR lança painel interativo sobre os PPAs dos municípios",
+  "summary": "Uma das funcionalidades da ferramenta é o Índice de Maturidade, por meio do qual é possível avaliar a qualidade dos dados contidos no Plano Plurianual das 399 prefeituras do estado",
   "category": "Dados públicos",
   "date": "2025-10-09",
   "author": "Diretoria de Comunicação Social, TCE-PR",
-  "summary": "Ferramenta reúne informações sobre o Plano Plurianual e o Índice de Maturidade dos 399 municípios do Paraná.",
   "featured": true,
-  "images": [{"src":"news/media/ppa-painel-01.webp","alt":"Live de lançamento do Painel PPA e Índice de Maturidade","caption":"Live de lançamento do painel interativo PPA e Índice de Maturidade. Crédito: Elizandro Natal Brollo."}],
+  "images": [
+    {
+      "src": "/news/media/ppa-painel-01.webp",
+      "alt": "Live de lançamento do Painel PPA e Índice de Maturidade",
+      "caption": "Live de lançamento do painel interativo PPA e Índice de Maturidade. Crédito: Elizandro Natal Brollo."
+    }
+  ],
   "content": [
     {
       "type": "paragraph",
-      "text": "O Tribunal de Contas do Estado do Paraná apresentou o painel interativo PPA e Índice de Maturidade, voltado à avaliação da qualidade das informações dos Planos Plurianuais das prefeituras paranaenses."
+      "text": "O Tribunal de Contas do Paraná lançará, nesta sexta-feira (10 de outubro), um painel interativo para avaliar a maturidade do Plano Plurianual (PPA) dos 399 municípios do estado. O lançamento ocorrerá em uma live, que terá início às 10 horas e será transmitida pelo canal da Escola de Gestão Pública do TCE-PR no Youtube. Não é necessária inscrição prévia.",
+      "linkLabel": "canal da Escola de Gestão Pública do TCE-PR no Youtube",
+      "linkUrl": "https://www.youtube.com/watch?v=fY_HO3JjqE0"
     },
     {
       "type": "paragraph",
-      "text": "O recurso amplia o acesso a dados sobre o principal instrumento de planejamento de médio prazo dos municípios e permite observar dimensões relacionadas à maturidade dos PPAs."
+      "text": "Na transmissão ao vivo, os participantes conhecerão o painel interativo PPA e Índice de Maturidade, que ficará disponível no portal do TCE-PR na internet. Com mais essa ferramenta digital de consulta de dados, o Tribunal busca melhorar a qualidade da informação a respeito do PPA, o principal instrumento de planejamento de médio prazo nos municípios."
+    },
+    {
+      "type": "paragraph",
+      "text": "A live desta sexta-feira terá a participação do presidente do TCE-PR, conselheiro Ivens Linhares; do coordenador-geral de Fiscalização da Corte, Rafael Ayres; e do auditor de controle externo Robson Fernandes Soares."
     }
   ],
-  "source": {"label":"Tribunal de Contas do Estado do Paraná — notícia original","url":"https://www.tce.pr.gov.br/noticias/tce-pr-lanca-nesta-sexta-as-10h-painel-interativo-sobre-os-ppas-dos-municipios/12525/N.htm"}
+  "contentEn": [
+    {
+      "type": "paragraph",
+      "text": "The Paraná State Court of Auditors will launch an interactive dashboard this Friday (October 10) to assess the maturity of the Multi-Year Plans (PPA) of the state's 399 municipalities. The launch will take place during a live stream starting at 10:00 a.m., broadcast on the TCE-PR School of Public Management’s YouTube channel. No prior registration is required."
+    },
+    {
+      "type": "paragraph",
+      "text": "During the live broadcast, participants will be introduced to the interactive PPA and Maturity Index dashboard, which will be available on the TCE-PR website. With this additional digital data-querying tool, the Court aims to improve the quality of information regarding the PPA—the primary medium-term planning instrument for municipalities."
+    },
+    {
+      "type": "paragraph",
+      "text": "This Friday's live broadcast will feature the participation of the President of the TCE-PR, Councilor Ivens Linhares; the Court's General Coordinator of Oversight, Rafael Ayres; and External Control Auditor Robson Fernandes Soares."
+    }
+  ],
+  "source": {
+    "label": "Tribunal de Contas do Estado do Paraná — notícia original",
+    "url": "https://www.tce.pr.gov.br/noticias/tce-pr-lanca-nesta-sexta-as-10h-painel-interativo-sobre-os-ppas-dos-municipios/12525/N.htm"
+  },
+  "titleEn": "TCE-PR launches interactive dashboard on municipal Multi-Year Plans (PPAs)",
+  "summaryEn": "One of the tool's features is the Maturity Index, which makes it possible to assess the quality of the data contained in the Multi-Year Plans of the state's 399 municipalities.",
+  "categoryEn": "Public data",
+  "authorEn": " Social Communication Directorate, TCE-PR",
+  "translationStatus": "Revisada"
 }
