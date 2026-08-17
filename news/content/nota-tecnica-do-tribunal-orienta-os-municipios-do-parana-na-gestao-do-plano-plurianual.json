@@ -1,10 +1,15 @@
 {
   "slug": "nota-tecnica-elaboracao-ppa",
   "title": "Nota Técnica do Tribunal orienta os municípios do Paraná na gestão do Plano Plurianual",
+  "titleEn": "Court Technical Note guides Paraná municipalities on the management of the Multi-Year Plan.",
   "summary": "Nota Técnica nº 37/2025 da Coordenadoria-Geral de Fiscalização traz modelos dos documentos mínimos necessários no processo de gestão do PPA: Elaboração, Monitoramento, Revisão e Avaliação",
+  "summaryEn": "Technical Note No. 37/2025 from the General Coordination of Oversight provides templates for the minimum documents required for the Multi-Year Plan (PPA) management process: formulation, monitoring, revision, and evaluation.",
   "category": "Comunicados",
+  "categoryEn": "Announcements",
   "date": "2026-03-03",
   "author": "Diretoria de Comunicação Social - TCE-PR",
+  "authorEn": "Social Communication Directorate - TCE-PR",
+  "translationStatus": "Revisada",
   "featured": false,
   "images": [
     {
@@ -34,6 +39,30 @@
       "type": "paragraph",
       "text": "No evento, o auditor de controle externo Robson Fernandes Soares, servidor da CGF, apresenta o painel interativo Plano Plurianual, disponível no Portal Informação para Todos (PIT), e o Índice de Maturidade dos Municípios em relação ao PPA, ferramenta desenvolvida pelo Tribunal.",
       "linkLabel": "painel interativo Plano Plurianual",
+      "linkUrl": "https://app.powerbi.com/view?r=eyJrIjoiNDNmNDRlNGYtNDY1My00OWMyLTk3NGYtMGE1MDk4YTVmYWQyIiwidCI6ImY3MGEwYWY2LWRhMGYtNDViZS1iN2VkLTlmOGMxYjI0YmZkZiIsImMiOjR9"
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "paragraph",
+      "text": "With the aim of assisting each of Paraná's 399 municipalities in managing their Multi-Year Plan (PPA) for the 2026–2029 four-year period, the General Oversight Coordination Office of the State Court of Auditors prepared Technical Note No. 37/2025 - CGF/TCE-PR. The document is available under the \"Audited Entities/Normative Acts\" tab on the TCE-PR website.",
+      "linkLabel": "Technical Note No. 37/2025 - CGF/TCE-PR",
+      "linkUrl": "https://www1.tce.pr.gov.br/conteudo/nota-tecnica-n-37-de-19-de-novembro-de-2025-cgf.htm"
+    },
+    {
+      "type": "paragraph",
+      "text": "Provided for in Article 165, Paragraph 1, of the Federal Constitution, the PPA (Multi-Year Plan) is the public administration's primary medium-term budgetary planning instrument. The document establishes government guidelines, objectives, and targets for a four-year period, encompassing both investments and ongoing programs."
+    },
+    {
+      "type": "paragraph",
+      "text": "The Multi-Year Plan (PPA) remains in effect from the second year of an official's term through the first year of the subsequent term, serving as the foundation for the annual formulation of the Budgetary Guidelines Law (LDO) and the Annual Budget Law (LOA). The development and implementation of the PPA are crucial for ensuring the coherence, continuity, and effectiveness of government actions.\n\nThe PPA is one of the topics addressed in the \"TCE-PR Conecta – Data and Solutions for Public Management\" event series, which the TCE-PR School of Public Management is holding in eight regional hub cities across the state through mid-May.",
+      "linkLabel": "TCE-PR Conecta – Data and Solutions for Public Management",
+      "linkUrl": "https://egp.tce.pr.gov.br/Home/Cursos?idModalidade=1"
+    },
+    {
+      "type": "paragraph",
+      "text": "At the event, external control auditor Robson Fernandes Soares, a CGF staff member, presents the interactive Multi-Year Plan (PPA) dashboard—available on the Information for All Portal (PIT)—and the Municipal Maturity Index regarding the PPA, a tool developed by the Court.",
+      "linkLabel": "Multi-Year Plan (PPA) dashboard",
       "linkUrl": "https://app.powerbi.com/view?r=eyJrIjoiNDNmNDRlNGYtNDY1My00OWMyLTk3NGYtMGE1MDk4YTVmYWQyIiwidCI6ImY3MGEwYWY2LWRhMGYtNDViZS1iN2VkLTlmOGMxYjI0YmZkZiIsImMiOjR9"
     }
   ],
