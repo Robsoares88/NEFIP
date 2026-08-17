@@ -35,7 +35,9 @@ content:
     fields:
       - { name: slug, label: URL, type: string, required: true, pattern: "^[a-z0-9-]+$", description: "Use letras minúsculas, números e hífens." }
       - { name: title, label: Manchete (PT-BR), type: string, required: true }
+      - { name: titleEn, label: Manchete em inglês (opcional), type: string }
       - { name: summary, label: Resumo (PT-BR), type: text, required: true }
+      - { name: summaryEn, label: Resumo em inglês (opcional), type: text }
       # Lista institucional fixa para manter filtros e arquivos consistentes.
       - name: category
         label: Categoria
@@ -68,8 +70,16 @@ content:
             - Comunicados
             # Mantida para compatibilidade com as notícias já publicadas.
             - Dados públicos
+      - { name: categoryEn, label: Categoria em inglês (opcional), type: string }
       - { name: date, label: Data de publicação, type: date, required: true }
       - { name: author, label: Autoria, type: string, required: true }
+      - { name: authorEn, label: Autoria em inglês (opcional), type: string }
+      - name: translationStatus
+        label: Status da tradução
+        type: select
+        description: "Controle editorial interno; não aparece no site."
+        options:
+          values: [Somente português, Em tradução, Revisada]
       - { name: featured, label: Destacar na página inicial, type: boolean, default: false }
       - name: images
         label: Imagens e créditos
@@ -155,14 +165,3 @@ content:
         fields:
           - { name: label, label: Nome da fonte, type: string }
           - { name: url, label: Link da fonte, type: string }
-      # TRADUÇÃO: campos planos opcionais, compatíveis com o editor do Pages CMS.
-      - { name: titleEn, label: Manchete em inglês (opcional), type: string }
-      - { name: summaryEn, label: Resumo em inglês (opcional), type: text }
-      - { name: categoryEn, label: Categoria em inglês (opcional), type: string }
-      - { name: authorEn, label: Autoria em inglês (opcional), type: string }
-      - name: translationStatus
-        label: Status da tradução
-        type: select
-        description: "Controle editorial interno; não aparece no site."
-        options:
-          values: [Somente português, Em tradução, Revisada]

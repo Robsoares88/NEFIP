@@ -91,15 +91,22 @@ def render_content(article: dict) -> str:
         text = block.get("text", "")
         link_label = block.get("linkLabel", "")
         link_url = block.get("linkUrl", "")
-        escaped_text = html.escape(text)
-        if link_label and link_url and link_label in text:
-            escaped_label = html.escape(link_label)
-            anchor = (
-                f'<a href="{html.escape(link_url, quote=True)}" target="_blank" rel="noopener noreferrer">'
-                f'{escaped_label}</a>'
-            )
-            escaped_text = escaped_text.replace(escaped_label, anchor, 1)
-        if escaped_text:
+        # Cada linha não vazia do Item vira um parágrafo. Isso permite escrever
+        # vários parágrafos simples no mesmo Item; o link é aplicado uma vez,
+        # no parágrafo que contém o trecho informado no CMS.
+        link_applied = False
+        for paragraph in (line.strip() for line in text.splitlines()):
+            if not paragraph:
+                continue
+            escaped_text = html.escape(paragraph)
+            if not link_applied and link_label and link_url and link_label in paragraph:
+                escaped_label = html.escape(link_label)
+                anchor = (
+                    f'<a href="{html.escape(link_url, quote=True)}" target="_blank" rel="noopener noreferrer">'
+                    f'{escaped_label}</a>'
+                )
+                escaped_text = escaped_text.replace(escaped_label, anchor, 1)
+                link_applied = True
             rendered.append(f"<p>{escaped_text}</p>")
     return "\n        ".join(rendered)
 
