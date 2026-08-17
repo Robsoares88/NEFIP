@@ -213,17 +213,25 @@ h3{
 }
 
 .brand strong{
+  display:block;
   font-family:var(--serif);
   font-size:var(--brand-title-size,1.34rem);
-  letter-spacing:.02em
+  line-height:1;
+  letter-spacing:.02em;
+  transition:font-size .12s linear
 }
 
 .brand small{
   display:block;
   color:var(--muted);
   font-size:.58rem;
+  line-height:.72rem;
   letter-spacing:.04em;
-  opacity:var(--brand-subtitle-opacity,1)
+  max-height:var(--brand-subtitle-height,.72rem);
+  margin-top:var(--brand-subtitle-margin,2px);
+  overflow:hidden;
+  opacity:var(--brand-subtitle-opacity,1);
+  transition:max-height .12s linear,margin .12s linear,opacity .12s linear
 }
 
 .search{

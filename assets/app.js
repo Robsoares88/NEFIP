@@ -109,6 +109,18 @@ Object.assign(EN, {
   , 'Capital (XML)': '(XML)'
   , 'CAPAG (STN)': 'CAPAG (National Treasury)'
   , 'Dados públicos': 'Public data'
+  , 'UFPR - Instituição Parceira': 'UFPR - Partner Institution'
+  , 'E-mail': 'Email'
+  , 'Navegação principal': 'Main navigation'
+  , 'NEFIP, página inicial': 'NEFIP, home page'
+  , 'Filtrar por categoria': 'Filter by category'
+  , 'Filtrar por ano': 'Filter by year'
+  , 'Filtrar por tema': 'Filter by theme'
+  , 'Filtrar por status': 'Filter by status'
+  , 'Filtrar por tipo': 'Filter by type'
+  , 'Lista de dados e materiais': 'Data and materials list'
+  , 'Detalhes do conjunto de dados': 'Dataset details'
+  , 'Downloads complementares': 'Supplementary downloads'
 });
 function t(value) { return locale === 'en' ? (EN[value] || value) : value; }
 /* Traduções dos registros institucionais atuais. Novos registros podem usar
@@ -272,9 +284,13 @@ function setupGlobalInteractions() {
     header?.style.setProperty('--header-top-height', `${70 - (14 * progress)}px`);
     header?.style.setProperty('--header-top-padding', `${11 - (5 * progress)}px`);
     header?.style.setProperty('--brand-mark-size', `${44 - (10 * progress)}px`);
-    header?.style.setProperty('--brand-title-size', `${1.34 - (.18 * progress)}rem`);
+    /* A sigla cresce à medida que o nome extenso se recolhe, terminando com
+       uma altura visual equivalente à da marca reduzida. */
+    header?.style.setProperty('--brand-title-size', `${1.34 + (.62 * progress)}rem`);
     header?.style.setProperty('--navigation-padding', `${11 - (3 * progress)}px`);
-    header?.style.setProperty('--brand-subtitle-opacity', String(1 - (.82 * progress)));
+    header?.style.setProperty('--brand-subtitle-opacity', String(1 - progress));
+    header?.style.setProperty('--brand-subtitle-height', `${.72 * (1 - progress)}rem`);
+    header?.style.setProperty('--brand-subtitle-margin', `${2 * (1 - progress)}px`);
     header?.classList.toggle('is-condensed', progress > .02);
     topButton?.classList.toggle('visible', window.scrollY > 500);
   }
