@@ -168,6 +168,13 @@ def build() -> None:
     index_entries = []
     for position, article in enumerate(articles, start=1):
         article.setdefault("id", position)
+        english_fields = {
+            "title": article.get("titleEn"),
+            "summary": article.get("summaryEn"),
+            "category": article.get("categoryEn"),
+            "author": article.get("authorEn"),
+        }
+        english_fields = {key: value for key, value in english_fields.items() if value}
         output_file = OUTPUT_ROOT / article["slug"] / "index.html"
         output_file.parent.mkdir(parents=True, exist_ok=True)
         output_file.write_text(render_article(article), encoding="utf-8")
@@ -180,7 +187,7 @@ def build() -> None:
             "coverAlt": images[0].get("alt", article["title"]) if images else article["title"],
             "featured": article.get("featured", False),
             # Campos em inglês são opcionais e usados pelo site quando a URL tem ?lang=en.
-            "en": article.get("en", {}),
+            "en": english_fields,
         })
     GENERATED_INDEX.parent.mkdir(parents=True, exist_ok=True)
     pages_dir = GENERATED_INDEX.parent / "pages"

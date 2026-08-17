@@ -83,12 +83,65 @@ Object.assign(EN, {
   , 'Reconhecimento do painel no Infosfera 2025, promovido pela UFPR, como boa prática de gestão da informação pública.': 'The dashboard was recognized at Infosfera 2025, organized by UFPR, as a good public information-management practice.'
   , 'Nota Técnica nº 37/2025 orienta a gestão dos PPAs 2026–2029 nos municípios paranaenses.': 'Technical Note No. 37/2025 provides guidance on the management of 2026–2029 Multi-Year Plans in Paraná municipalities.'
   , 'Painel sobre a evolução orçamentária por ODS amplia a leitura do planejamento municipal.': 'The dashboard on budget allocation by SDG broadens the understanding of municipal planning.'
+  , 'Consulte informações de projeções, programas, ações e indicadores dos Planos Plurianuais dos municípios paranaenses.': 'Consult projections, programs, actions and indicators from the Multi-Year Plans of Paraná municipalities.'
+  , 'Os dados estão organizados por período e disponíveis nos formatos CSV, JSON e XML.': 'The data are organized by period and available in CSV, JSON and XML formats.'
+  , 'Consulte indicadores e demonstrativos de gestão fiscal elaborados com dados enviados pelos municípios ao SIMAM.': 'Consult fiscal-management indicators and statements prepared from data submitted by municipalities to SIMAM.'
+  , 'Os dados estão organizados por período e incluem informações de gestão fiscal municipal e despesas de capital.': 'The data are organized by period and include municipal fiscal-management and capital-expenditure information.'
+  , 'Períodos:': 'Periods:'
+  , 'Formatos:': 'Formats:'
+  , 'Abrir painel do PPA': 'Open MYP dashboard'
+  , 'Abrir painel fiscal': 'Open fiscal dashboard'
+  , 'Gestão Fiscal': 'Fiscal Management'
+  , 'Municipal (CSV)': 'Municipal (CSV)'
+  , 'Municipal (JSON)': 'Municipal (JSON)'
+  , 'Municipal (XML)': 'Municipal (XML)'
+  , 'Despesas de': 'Capital Expenditure'
+  , 'Capital (CSV)': '(CSV)'
+  , 'Capital (JSON)': '(JSON)'
+  , 'Capital (XML)': '(XML)'
+  , 'CAPAG (STN)': 'CAPAG (National Treasury)'
+  , 'Dados públicos': 'Public data'
 });
 function t(value) { return locale === 'en' ? (EN[value] || value) : value; }
-/* Registros podem receber um objeto `en` com apenas os campos traduzidos.
-   Ex.: { title: '...', summary: '...', en: { title: '...', summary: '...' } } */
+/* Traduções dos registros institucionais atuais. Novos registros podem usar
+   diretamente um objeto `en` com apenas os campos que precisarem traduzir. */
+const PROJECT_EN = {
+  1: {
+    title: 'MYP Dashboard and Maturity Index', period: '2025', year: '2025', status: 'Published',
+    theme: 'Planning and budgeting', summary: 'A public tool for consulting information on the maturity of Multi-Year Plans in Paraná’s 399 municipalities.',
+    partners: 'TCE-PR', results: 'Interactive dashboard available on the Informação para Todos Portal.',
+    objectives: 'Expand access to information on municipal planning.',
+    methodology: 'Organization and presentation of data from municipal Multi-Year Plans.'
+  },
+  2: {
+    title: 'SDG Municipal Planning Budget Allocation Dashboard', period: '2026', year: '2026', status: 'Published',
+    theme: 'Data and sustainable development', summary: 'A tool for consulting municipal budget allocations across the 17 Sustainable Development Goals.',
+    partners: 'TCE-PR', results: 'Public dashboard with territorial and MYP-cycle filters.',
+    objectives: 'Support the analysis of municipal financing related to the SDGs.',
+    methodology: 'Automated classification of budget actions for the 2022–2025 and 2026–2029 cycles.'
+  },
+  3: {
+    title: 'Municipal Fiscal Management Dashboard', period: '2026', year: '2026', status: 'Published',
+    theme: 'Municipal fiscal management', summary: 'Business Intelligence dashboard integrating fiscal-management information reported by Paraná municipal entities to SIM-AM.',
+    partners: 'TCE-PR', results: 'Indicators, comparative analyses and visualizations on fiscal management, assets, fiscal targets and risks, revenue waivers, public debt, investments and budget changes.',
+    objectives: 'Present relevant information on municipal fiscal management in an integrated and accessible way, supporting social oversight, transparency and monitoring.',
+    methodology: 'Organization of data reported to the Municipal Information System — Monthly Monitoring (SIM-AM) into indicators and comparative analyses since 2018.'
+  }
+};
+const TEAM_EN = {
+  'Robson Fernandes Soares': { role: 'External Control Auditor', interest: 'Municipal Planning and Budgeting', bio: 'External control auditor at TCE-PR and Executive Advisor to a Council Member at the General Audit Coordination Office (CGF).' },
+  'Denilson Aldino Beal': { role: 'External Control Auditor', interest: 'Audit Standards', bio: 'External control auditor at TCE-PR and Manager of Methods and Standards at the General Audit Coordination Office (CGF).' },
+  'Fabio Junior Damacena': { role: 'External Control Auditor', interest: 'Data Analysis and Data Visualization', bio: 'External control auditor at TCE-PR and Executive Coordinator at the Audit Systems and Information Coordination Office (COSIF).' },
+  'Fernando Motta Correia': { role: 'Professor and Researcher', interest: 'Public Sector Economics and Macroeconomics', bio: 'Full Professor at UFPR’s Department of Economics, with research interests in Macroeconomics and Public Sector Economics.' },
+  'Leandro Menezes Rodrigues': { role: 'External Control Auditor', interest: 'Auditing and Public Budgeting', bio: 'External control auditor at TCE-PR and Audit Manager at the 4th External Control Inspectorate (4ICE).' },
+  'Douglas Nascimento de Oliveira': { role: 'Graduate Intern', interest: 'Data Analysis and Web Development', bio: 'Graduate student in Data Science and intern at the General Audit Coordination Office (CGF).' }
+};
 function localizeRecord(item) {
-  return locale === 'en' && item?.en ? { ...item, ...item.en } : item;
+  if (locale !== 'en' || !item) return item;
+  if (item.en) return { ...item, ...item.en };
+  if ('objectives' in item && PROJECT_EN[item.id]) return { ...item, ...PROJECT_EN[item.id] };
+  if ('role' in item && TEAM_EN[item.name]) return { ...item, ...TEAM_EN[item.name] };
+  return item;
 }
 function localizedUrl(url) {
   if (locale !== 'en' || /^(https?:|mailto:|#)/.test(url)) return url;
@@ -188,7 +241,7 @@ function buildFooter() {
         <div><h3>Acesso rápido</h3><div class="footer-links"><a href="${localizedUrl('projetos.html')}">Projetos</a><a href="${localizedUrl('publicacoes.html')}">Publicações</a><a href="${localizedUrl('dados.html')}">Dados e materiais</a><a href="${localizedUrl('contato.html')}">Contato</a></div></div>
         <div><h3>Contato</h3><p>Atendimento pelo formulário institucional.<br>Curitiba, Paraná — Brasil</div>
       </div>
-      <div class="wrap copyright">© ${new Date().getFullYear()} NEFIP | Todos os direitos reservados.</div>
+      <div class="wrap copyright">© ${new Date().getFullYear()} NEFIP | ${t('Todos os direitos reservados.')}</div>
     </footer>`;
 }
 
