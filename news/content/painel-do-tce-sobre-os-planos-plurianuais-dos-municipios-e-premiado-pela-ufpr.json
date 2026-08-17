@@ -1,10 +1,15 @@
 {
   "slug": "mencao-honrosa-infosfera-2025",
   "title": "Painel do TCE sobre os planos plurianuais dos municípios é premiado pela UFPR",
+  "titleEn": "TCE dashboard on municipal multi-year plans receives award from UFPR",
   "summary": "Ferramenta está acessível no Portal Informação para Todos, na capa do site do Tribunal. Ela foi reconhecida como boa prática de gestão da informação na administração pública no evento Infosfera 2025.",
+  "summaryEn": "The tool is accessible via the \"Information for All\" portal on the Court's homepage. It was recognized as a best practice in public administration information management at the Infosfera 2025 event.",
   "category": "Premiações e Reconhecimentos",
+  "categoryEn": "Awards and Recognitions",
   "date": "2025-10-23",
-  "author": "Diretoria de Comunicação Social",
+  "author": "Diretoria de Comunicação Social, TCE-PR",
+  "authorEn": "Social Communication Directorate, TCE-PR",
+  "translationStatus": "Revisada",
   "featured": true,
   "images": [
     {
@@ -21,23 +26,28 @@
   "content": [
     {
       "type": "paragraph",
-      "text": "O Tribunal de Contas do Estado do Paraná (TCE-PR) foi uma das instituições premiadas na noite desta terça-feira (21 de outubro) durante o evento Infosfera 2025, cujo objetivo é identificar as melhores práticas de gestão da informação na esfera pública."
+      "text": "O Tribunal de Contas do Estado do Paraná (TCE-PR) foi uma das instituições premiadas na noite desta terça-feira (21 de outubro) durante o evento Infosfera 2025, cujo objetivo é identificar as melhores práticas de gestão da informação na esfera pública.\n\nPromovida pelo Núcleo de Pesquisa em Informação, Direito e Sociedade (Infojus) do Programa de Pós-Graduação em Gestão da Informação (PPGGI) da Universidade Federal do Paraná (UFPR), a iniciativa premiou o painel interativo PPA e Índice de Maturidade desenvolvido pela Corte de Contas, sob a justificativa de ser uma importante contribuição para a eficiência das boas práticas e políticas públicas municipais.\n\nO prêmio foi entregue pelo professor Rodrigo Luís Kanayama ao auditor de controle externo Robson Fernandes Soares, da Coordenadoria-Geral de Fiscalização (CGF) do TCE-PR, um dos idealizadores da ferramenta. Na ocasião, ele representou a equipe responsável pela iniciativa, que também é composta pelo titular da CGF, Rafael Ayres, e pelos servidores Douglas Oliveira, Fabio Damasceno e Vinicius Pimenta.",
+      "linkLabel": "PPA e Índice de Maturidade",
+      "linkUrl": "https://app.powerbi.com/view?r=eyJrIjoiNDNmNDRlNGYtNDY1My00OWMyLTk3NGYtMGE1MDk4YTVmYWQyIiwidCI6ImY3MGEwYWY2LWRhMGYtNDViZS1iN2VkLTlmOGMxYjI0YmZkZiIsImMiOjR9",
+      "image": "/news/media/visao-geral-ppa-painel.png",
+      "alt": "Visão geral do painel do PPA",
+      "caption": "TCE-PR"
     },
     {
       "type": "paragraph",
-      "text": "Promovida pelo Núcleo de Pesquisa em Informação, Direito e Sociedade (Infojus) do Programa de Pós-Graduação em Gestão da Informação (PPGGI) da Universidade Federal do Paraná (UFPR), a iniciativa premiou o painel interativo PPA e Índice de Maturidade desenvolvido pela Corte de Contas, sob a justificativa de ser uma importante contribuição para a eficiência das boas práticas e políticas públicas municipais."
+      "text": "**Objetivos**\n\nAo falar na solenidade de encerramento do evento, o presidente do Tribunal de Contas, conselheiro Ivens Linhares, destacou que os objetivos do Infosfera coincidem com as prioridades de sua gestão à frente da Corte. Ele lembrou que a instituição atua hoje buscando a melhoria na fiscalização das políticas públicas; o incentivo e o aprimoramento das ferramentas de controle social; e o desenvolvimento de novas ferramentas tecnológicas para auxiliar o controle externo, especialmente aquelas relativas à inteligência artificial.\n\n\"A conjugação destes três objetivos leva ao diálogo com as universidades e à realização de eventos presenciais, que já ultrapassaram o número de 50 somente neste ano, nos quais a tônica é trabalhar as informações, alimentando os gestores com dados corretos e incentivando as boas práticas\", ressaltou Linhares.\n\n**Painel**\n\nO painel interativo PPA e Índice de Maturidade, desenvolvido por meio da plataforma Microsoft Power BI, apresenta dados relativos à maturidade dos Planos Plurianuais dos 399 municípios paranaenses. Ele pode ser acessado na página inicial do site do TCE-PR, no Portal Informação para Todos (PIT).\n\nO Plano Plurianual (PPA), previsto no artigo 165 da Constituição Federal, consiste em um documento de planejamento de gestão a ser elaborado pelos Poderes Executivos municipais, estaduais e Federal, contendo as diretrizes, objetivos, estratégias e metas da gestão para um período de quatro anos.\n\nApós sua elaboração, o PPA é encaminhado como projeto de lei para debate e aprovação dos respectivos Poderes Legislativos e transformado em lei, a qual irá fundamentar todos os projetos de leis orçamentárias anuais seguintes e direcionar de forma organizada e consistente as ações públicas.\n\nPor sua vez, o painel interativo sobre o tema lançado pelo TCE-PR reúne dados de todos os municípios paranaenses numa única plataforma, reunidos e organizados de forma a servir como ferramenta de medição e acompanhamento do detalhamento da execução dos respectivos planos plurianuais, disponível para consulta do público em geral.\n\nUma das abas do painel trata do índice de maturidade de cada PPA municipal. Este é composto por sete indicadores, os quais tratam de diversos aspectos das informações constantes no planejamento. Além de apontar a conformidade e a coerência do PPA, esse índice permite tanto comparar um município com os demais quanto avaliar a evolução de cada localidade entre um ciclo de planejamento e outro."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "paragraph",
+      "text": "The State Court of Auditors of Paraná (TCE-PR) was among the institutions honored this Tuesday evening (October 21) at the Infosfera 2025 event, which aims to identify best practices in information management within the public sector.\n\nOrganized by the Research Group on Information, Law, and Society (Infojus)—part of the Graduate Program in Information Management (PPGGI) at the Federal University of Paraná (UFPR)—the initiative recognized the \"PPA and Maturity Index\" interactive dashboard developed by the Court. The award acknowledged the tool as a significant contribution to the efficiency of municipal public policies and management practices.\n\nProfessor Rodrigo Luís Kanayama presented the award to external control auditor Robson Fernandes Soares, of the TCE-PR’s General Coordination of Oversight (CGF), who was one of the tool's creators. He represented the team behind the initiative, which also includes the head of the CGF, Rafael Ayres, and staff members Douglas Oliveira, Fabio Damasceno, and Vinicius Pimenta.",
+      "linkLabel": "PPA and Maturity Index",
+      "linkUrl": "https://app.powerbi.com/view?r=eyJrIjoiNDNmNDRlNGYtNDY1My00OWMyLTk3NGYtMGE1MDk4YTVmYWQyIiwidCI6ImY3MGEwYWY2LWRhMGYtNDViZS1iN2VkLTlmOGMxYjI0YmZkZiIsImMiOjR9"
     },
     {
       "type": "paragraph",
-      "text": "O prêmio foi entregue pelo professor Rodrigo Luís Kanayama ao auditor de controle externo Robson Fernandes Soares, da Coordenadoria-Geral de Fiscalização (CGF) do TCE-PR, um dos idealizadores da ferramenta. Na ocasião, ele representou a equipe responsável pela iniciativa, que também é composta pelo titular da CGF, Rafael Ayres, e pelos servidores Douglas Oliveira, Fabio Damasceno e Vinicius Pimenta."
-    },
-    {
-      "type": "paragraph",
-      "text": "Ao falar na solenidade de encerramento do evento, o presidente do Tribunal de Contas, conselheiro Ivens Linhares, destacou que os objetivos do Infosfera coincidem com as prioridades de sua gestão à frente da Corte. Ele lembrou que a instituição atua hoje buscando a melhoria na fiscalização das políticas públicas; o incentivo e o aprimoramento das ferramentas de controle social; e o desenvolvimento de novas ferramentas tecnológicas para auxiliar o controle externo, especialmente aquelas relativas à inteligência artificial."
-    },
-    {
-      "type": "paragraph",
-      "text": "\"A conjugação destes três objetivos leva ao diálogo com as universidades e à realização de eventos presenciais, que já ultrapassaram o número de 50 somente neste ano, nos quais a tônica é trabalhar as informações, alimentando os gestores com dados corretos e incentivando as boas práticas\", ressaltou Linhares."
+      "text": "**Objectives**\n\nSpeaking at the event's closing ceremony, the President of the Court of Auditors, Councilor Ivens Linhares, highlighted that the objectives of *Infosfera* align with the priorities of his administration at the helm of the Court. He noted that the institution currently works to improve the oversight of public policies, encourage and enhance social oversight tools, and develop new technological tools—particularly those involving artificial intelligence—to assist in external oversight.\n\n\"Combining these three objectives leads to dialogue with universities and the hosting of in-person events—of which there have been over 50 this year alone—where the focus is on processing information, providing administrators with accurate data, and encouraging best practices,\" Linhares emphasized.\n\n**Dashboard**\n\nThe interactive dashboard regarding the Multi-Year Plan (PPA) and the Maturity Index, developed using the Microsoft Power BI platform, presents data on the maturity of the Multi-Year Plans of the 399 municipalities in Paraná. It can be accessed via the TCE-PR website's homepage, within the \"Information for All\" Portal (PIT).\n\nThe Multi-Year Plan (PPA), mandated by Article 165 of the Federal Constitution, is a management planning document prepared by the municipal, state, and federal executive branches. It outlines the administration's guidelines, objectives, strategies, and targets for a four-year period.\n\nOnce drafted, the PPA is submitted as a bill for debate and approval by the respective legislative bodies and enacted into law; this law then serves as the foundation for all subsequent annual budget bills and guides public actions in an organized and consistent manner.\n\nThe interactive dashboard launched by TCE-PR consolidates data from all municipalities in Paraná onto a single platform. This data is organized to serve as a tool for measuring and monitoring the detailed execution of the respective multi-year plans, and the dashboard is available for consultation by the general public. One of the dashboard tabs addresses the maturity index of each municipal Multi-Year Plan (PPA). This index comprises seven indicators covering various aspects of the information contained in the plan. Beyond indicating the PPA’s compliance and coherence, the index allows for both comparisons between municipalities and an assessment of each locality's progress from one planning cycle to the next."
     }
   ],
   "source": {
