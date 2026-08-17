@@ -104,6 +104,42 @@ def render_content(article: dict) -> str:
     return "\n        ".join(rendered)
 
 
+def render_article_fragment(article: dict, date: str, english: bool = False) -> str:
+    """Renderiza o conteúdo interno de uma notícia para PT-BR ou EN."""
+    source = article.get("source") or {}
+    source_block = ""
+    source_note = ""
+    if source.get("url"):
+        source_label = "Source" if english else "Fonte"
+        original_label = "Original article" if english else "Notícia original"
+        source_block = (
+            f'<div class="article-source"><span>{source_label}</span>'
+            f'<a href="{html.escape(source["url"], quote=True)}" target="_blank" rel="noopener noreferrer">'
+            f'{html.escape(source.get("label", original_label))} ↗</a></div>'
+        )
+        source_note = (
+            '<p class="article-note">This is an editorial summary by NEFIP. For complete information, please consult the original source.</p>'
+            if english else
+            '<p class="article-note">Esta é uma síntese editorial do NEFIP. Para informações completas, consulte a fonte original.</p>'
+        )
+    byline = "By" if english else "Por"
+    back_link = "← Back to news" if english else "← Voltar para notícias"
+    return f"""
+        <header class="news-article-header">
+          <p class="eyebrow">{html.escape(article['category']).upper()}</p>
+          <h1>{html.escape(article['title'])}</h1>
+          <p class="lead">{html.escape(article['summary'])}</p>
+          <p class="article-byline">{byline} {html.escape(article['author'])}</p>
+          <p class="article-date">{date}</p>
+        </header>
+        {render_gallery(article)}
+        {render_content(article)}
+        {source_block}
+        {source_note}
+        <a class="text-link" href="noticias.html">{back_link}</a>
+    """
+
+
 def render_article(article: dict) -> str:
     """Monta uma página completa usando o mesmo cabeçalho, rodapé e CSS do site."""
     paragraphs = render_content(article)
@@ -122,6 +158,23 @@ def render_article(article: dict) -> str:
     months = {"January":"janeiro", "February":"fevereiro", "March":"março", "April":"abril", "May":"maio", "June":"junho", "July":"julho", "August":"agosto", "September":"setembro", "October":"outubro", "November":"novembro", "December":"dezembro"}
     for english, portuguese in months.items():
         date = date.replace(english, portuguese)
+
+    english_template = ""
+    if article.get("contentEn"):
+        english_article = {
+            **article,
+            "title": article.get("titleEn", article["title"]),
+            "summary": article.get("summaryEn", article["summary"]),
+            "category": article.get("categoryEn", article["category"]),
+            "author": article.get("authorEn", article["author"]),
+            "content": article["contentEn"],
+        }
+        english_date = datetime.fromisoformat(article["date"]).strftime("%d %B %Y")
+        english_template = (
+            '<template id="article-en-content">'
+            + render_article_fragment(english_article, english_date, english=True)
+            + '</template>'
+        )
 
     return f"""<!doctype html>
 <html lang="pt-BR">
@@ -154,6 +207,7 @@ def render_article(article: dict) -> str:
         {source_note}
         <a class="text-link" href="noticias.html">← Voltar para notícias</a>
       </article>
+      {english_template}
     </main>
     <div id="site-footer"></div>
     <button class="to-top" aria-label="Voltar ao topo">↑</button>

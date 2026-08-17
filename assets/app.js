@@ -507,11 +507,20 @@ function initTeam() {
   translateDocument(byId('team-list'));
 }
 
+/* NOTÍCIA EM INGLÊS: o gerador inclui um template somente quando contentEn existe. */
+function initNewsArticleLanguage() {
+  if (currentPage !== 'news-article' || locale !== 'en') return;
+  const template = byId('article-en-content');
+  const article = document.querySelector('.news-article');
+  if (template && article) article.innerHTML = template.innerHTML;
+}
+
 /* -------------------- INICIALIZAÇÃO DA PÁGINA ATUAL -------------------- */
 addFavicon();
 buildHeader();
 buildFooter();
 setupGlobalInteractions();
+initNewsArticleLanguage();
 setupCarousels();
 
 const pageInitializers = { home: initHome, news: initNews, projects: initProjects, publications: initPublications, awards: initAwards, about: initTeam, data: initData };

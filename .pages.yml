@@ -34,8 +34,8 @@ content:
         order: desc
     fields:
       - { name: slug, label: URL, type: string, required: true, pattern: "^[a-z0-9-]+$", description: "Use letras minúsculas, números e hífens." }
-      - { name: title, label: Manchete, type: string, required: true }
-      - { name: summary, label: Resumo, type: text, required: true }
+      - { name: title, label: Manchete (PT-BR), type: string, required: true }
+      - { name: summary, label: Resumo (PT-BR), type: text, required: true }
       # Lista institucional fixa para manter filtros e arquivos consistentes.
       - name: category
         label: Categoria
@@ -89,7 +89,7 @@ content:
           - { name: caption, label: Legenda e crédito, type: text, required: true }
       # CORPO: os blocos podem ser reordenados para inserir imagens entre parágrafos.
       - name: content
-        label: Conteúdo da notícia
+        label: Conteúdo da notícia (PT-BR)
         type: object
         list: true
         required: true
@@ -126,6 +126,28 @@ content:
           - name: caption
             label: Legenda e crédito da imagem
             type: text
+      # TRADUÇÃO EM INGLÊS: blocos paralelos, sem duplicar imagens ou metadados.
+      - name: contentEn
+        label: Conteúdo da notícia (EN, opcional)
+        type: object
+        list: true
+        description: "Use a mesma ordem de blocos da edição em português. Imagens e créditos são compartilhados."
+        fields:
+          - name: type
+            label: Tipo de bloco
+            type: select
+            options:
+              values: [paragraph]
+          - name: text
+            label: Parágrafo em inglês
+            type: text
+            description: "Cole aqui a tradução do parágrafo correspondente."
+          - name: linkLabel
+            label: Trecho que será o link (opcional)
+            type: string
+          - name: linkUrl
+            label: URL do link (opcional)
+            type: string
       - name: source
         label: Fonte original (opcional)
         type: object
